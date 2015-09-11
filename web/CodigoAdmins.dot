@@ -1,0 +1,12 @@
+digraph G {
+nodeMaster[label=Master];
+nodemaster2[label=master2];
+nodemaster2->nodeMaster;
+nodemaster4[label=master4];
+nodemaster[label=master];
+nodemaster->nodemaster4;
+nodemaster3[label=master3];
+nodemaster3->nodemaster2;
+nodemaster3->nodemaster;
+
+}

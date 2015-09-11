@@ -60,6 +60,7 @@ function mostrar(id) {
           <li><a href="AdminChofer.jsp">Choferes</a></li>
           <li><a href="AdminBuses.jsp">Buses</a></li>
           <li><a href="AdminRutas.jsp">Rutas</a></li>
+          <li><a href="Reportes.jsp">Reportes</a></li>
         </ul>
       </div>
       <div class="clr"></div>
@@ -89,22 +90,53 @@ function mostrar(id) {
                 <!--Formulario para crear un usuario administrador esta si se muestra por default al iniciar por eso no lleva el style="display: none;"-->  
                 <div id="Crear">
                     <h2>Crear Usuario Administrador</h2>
-                    <form action="index.php" method="post">
+                    <form action="AdminAdministradores.jsp" method="post">
                         <p><label for="lblusuario" style="font-size: 20px;">Asigne un correo: </label><br/>
-                        <input type="text" name="correo" /></p>
+                        <input type="text" name="CrearCorreoAdmin" /></p>
                         
                         <p><label for="lblcontra" style="font-size: 20px;">Asigne una Contraseña: </label><br/>
-                        <input type="password" name="contra" /></p>
+                        <input type="password" name="CrearContraAdmin" /></p>
                         
                         <p><label for="lblcontra" style="font-size: 20px;">Confirme la Contraseña: </label><br/>
-                        <input type="password" name="confirma" /></p>
+                        <input type="password" name="ConfirmaContra" /></p>
+                        
+                        <input type="submit" value="Crear Administrador" name="CrearAdmin"/>
+                            <%-- start web service invocation --%><hr/>
+                            <%
+                                if(request.getParameter("CrearCorreoAdmin") != null && request.getParameter("CrearContraAdmin") != null){
+                                    try {
+                                        webservice.WS_Service service = new webservice.WS_Service();
+                                        webservice.WS port = service.getWSPort();
+                                         // TODO initialize WS operation arguments here
+                                        java.lang.String correo = request.getParameter("CrearCorreoAdmin");
+                                        java.lang.String contrasena = request.getParameter("CrearContraAdmin");
+                                        // TODO process result here
+                                        boolean result = port.crearAdministrador(correo, contrasena);
+                                        if(result == true){
+                                            String mensaje="<script language='javascript'>alert('Usuario Creado con exito');</script>"; 
+                                            out.println(mensaje);
+                                        }else{
+                                            String mensaje="<script language='javascript'>alert('Error en la creacion del usuario, puede ser que ya exista');</script>"; 
+                                            out.println(mensaje);
+                                        }
+                                    } catch (Exception ex) {
+                                        // TODO handle custom exceptions here
+                                        String mensaje="<script language='javascript'>alert('Error el crear usuario');</script>"; 
+                                        out.println(mensaje);
+                                    }
+                                }else{
+                                    
+                                }                   
+                            %>
+    <%-- end web service invocation --%><hr/>
+
                     </form>
                 </div>
                 
                 <!--Formulario para modificar informacion de un administrador-->  
                 <div id="Modificar" style="display: none;">
                     <h2>Modificar Usuario Administrador</h2>
-                    <form action="index.php" method="post" >
+                    <form action="AdminAdministradores.jsp" method="post" >
                         <p><label for="lblusuario" style="font-size: 20px;">Asigne un correo: </label><br/>
                         <input type="text" name="correo" /></p>
                         
@@ -119,7 +151,7 @@ function mostrar(id) {
                 <!--Formulario para eliminar informacion de un administrador-->  
                 <div id="Eliminar" style="display: none;">
                     <h2>Eliminar Usuario Administrador</h2>
-                    <form action="index.php" method="post" >
+                    <form action="AdminAdministradores.jsp" method="post" >
                         <p><label for="lblusuario" style="font-size: 20px;">Escriba el correo del usuario a eliminar: </label><br/>
                         <input type="text" name="correoeliminar" /></p>
                     </form>

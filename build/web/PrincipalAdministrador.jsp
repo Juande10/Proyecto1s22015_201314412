@@ -38,6 +38,7 @@
           <li><a href="AdminChofer.jsp">Choferes</a></li>
           <li><a href="AdminBuses.jsp">Buses</a></li>
           <li><a href="AdminRutas.jsp">Rutas</a></li>
+          <li><a href="Reportes.jsp">Reportes</a></li>
         </ul>
       </div>
       <div class="clr"></div>

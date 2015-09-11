@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para ping complex type.
+ * <p>Clase Java para GraficarAdministradores complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="ping">
+ * &lt;complexType name="GraficarAdministradores">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ping")
-public class Ping {
+@XmlType(name = "GraficarAdministradores")
+public class GraficarAdministradores {
 
 
 }

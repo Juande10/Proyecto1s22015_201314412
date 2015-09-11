@@ -24,16 +24,56 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _CrearAdministrador_QNAME = new QName("http://webservice/", "CrearAdministrador");
+    private final static QName _LoginAdministradorResponse_QNAME = new QName("http://webservice/", "LoginAdministradorResponse");
     private final static QName _HelloResponse_QNAME = new QName("http://webservice/", "helloResponse");
-    private final static QName _Ping_QNAME = new QName("http://webservice/", "ping");
+    private final static QName _LoginAdministrador_QNAME = new QName("http://webservice/", "LoginAdministrador");
+    private final static QName _LoginEstacionGeneral_QNAME = new QName("http://webservice/", "LoginEstacionGeneral");
+    private final static QName _LoginEstacionGeneralResponse_QNAME = new QName("http://webservice/", "LoginEstacionGeneralResponse");
+    private final static QName _GraficarAdministradoresResponse_QNAME = new QName("http://webservice/", "GraficarAdministradoresResponse");
     private final static QName _Hello_QNAME = new QName("http://webservice/", "hello");
-    private final static QName _PingResponse_QNAME = new QName("http://webservice/", "pingResponse");
+    private final static QName _GraficarAdministradores_QNAME = new QName("http://webservice/", "GraficarAdministradores");
+    private final static QName _LoginEstacionClaveResponse_QNAME = new QName("http://webservice/", "LoginEstacionClaveResponse");
+    private final static QName _LoginEstacionClave_QNAME = new QName("http://webservice/", "LoginEstacionClave");
+    private final static QName _CrearAdministradorResponse_QNAME = new QName("http://webservice/", "CrearAdministradorResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: webservice
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link CrearAdministrador }
+     * 
+     */
+    public CrearAdministrador createCrearAdministrador() {
+        return new CrearAdministrador();
+    }
+
+    /**
+     * Create an instance of {@link LoginAdministradorResponse }
+     * 
+     */
+    public LoginAdministradorResponse createLoginAdministradorResponse() {
+        return new LoginAdministradorResponse();
+    }
+
+    /**
+     * Create an instance of {@link LoginAdministrador }
+     * 
+     */
+    public LoginAdministrador createLoginAdministrador() {
+        return new LoginAdministrador();
+    }
+
+    /**
+     * Create an instance of {@link LoginEstacionGeneral }
+     * 
+     */
+    public LoginEstacionGeneral createLoginEstacionGeneral() {
+        return new LoginEstacionGeneral();
     }
 
     /**
@@ -45,11 +85,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Ping }
+     * Create an instance of {@link GraficarAdministradores }
      * 
      */
-    public Ping createPing() {
-        return new Ping();
+    public GraficarAdministradores createGraficarAdministradores() {
+        return new GraficarAdministradores();
+    }
+
+    /**
+     * Create an instance of {@link LoginEstacionGeneralResponse }
+     * 
+     */
+    public LoginEstacionGeneralResponse createLoginEstacionGeneralResponse() {
+        return new LoginEstacionGeneralResponse();
+    }
+
+    /**
+     * Create an instance of {@link GraficarAdministradoresResponse }
+     * 
+     */
+    public GraficarAdministradoresResponse createGraficarAdministradoresResponse() {
+        return new GraficarAdministradoresResponse();
     }
 
     /**
@@ -61,11 +117,45 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link PingResponse }
+     * Create an instance of {@link LoginEstacionClave }
      * 
      */
-    public PingResponse createPingResponse() {
-        return new PingResponse();
+    public LoginEstacionClave createLoginEstacionClave() {
+        return new LoginEstacionClave();
+    }
+
+    /**
+     * Create an instance of {@link CrearAdministradorResponse }
+     * 
+     */
+    public CrearAdministradorResponse createCrearAdministradorResponse() {
+        return new CrearAdministradorResponse();
+    }
+
+    /**
+     * Create an instance of {@link LoginEstacionClaveResponse }
+     * 
+     */
+    public LoginEstacionClaveResponse createLoginEstacionClaveResponse() {
+        return new LoginEstacionClaveResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CrearAdministrador }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "CrearAdministrador")
+    public JAXBElement<CrearAdministrador> createCrearAdministrador(CrearAdministrador value) {
+        return new JAXBElement<CrearAdministrador>(_CrearAdministrador_QNAME, CrearAdministrador.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginAdministradorResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "LoginAdministradorResponse")
+    public JAXBElement<LoginAdministradorResponse> createLoginAdministradorResponse(LoginAdministradorResponse value) {
+        return new JAXBElement<LoginAdministradorResponse>(_LoginAdministradorResponse_QNAME, LoginAdministradorResponse.class, null, value);
     }
 
     /**
@@ -78,12 +168,39 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Ping }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginAdministrador }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservice/", name = "ping")
-    public JAXBElement<Ping> createPing(Ping value) {
-        return new JAXBElement<Ping>(_Ping_QNAME, Ping.class, null, value);
+    @XmlElementDecl(namespace = "http://webservice/", name = "LoginAdministrador")
+    public JAXBElement<LoginAdministrador> createLoginAdministrador(LoginAdministrador value) {
+        return new JAXBElement<LoginAdministrador>(_LoginAdministrador_QNAME, LoginAdministrador.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginEstacionGeneral }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "LoginEstacionGeneral")
+    public JAXBElement<LoginEstacionGeneral> createLoginEstacionGeneral(LoginEstacionGeneral value) {
+        return new JAXBElement<LoginEstacionGeneral>(_LoginEstacionGeneral_QNAME, LoginEstacionGeneral.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginEstacionGeneralResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "LoginEstacionGeneralResponse")
+    public JAXBElement<LoginEstacionGeneralResponse> createLoginEstacionGeneralResponse(LoginEstacionGeneralResponse value) {
+        return new JAXBElement<LoginEstacionGeneralResponse>(_LoginEstacionGeneralResponse_QNAME, LoginEstacionGeneralResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraficarAdministradoresResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "GraficarAdministradoresResponse")
+    public JAXBElement<GraficarAdministradoresResponse> createGraficarAdministradoresResponse(GraficarAdministradoresResponse value) {
+        return new JAXBElement<GraficarAdministradoresResponse>(_GraficarAdministradoresResponse_QNAME, GraficarAdministradoresResponse.class, null, value);
     }
 
     /**
@@ -96,12 +213,39 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link PingResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraficarAdministradores }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservice/", name = "pingResponse")
-    public JAXBElement<PingResponse> createPingResponse(PingResponse value) {
-        return new JAXBElement<PingResponse>(_PingResponse_QNAME, PingResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://webservice/", name = "GraficarAdministradores")
+    public JAXBElement<GraficarAdministradores> createGraficarAdministradores(GraficarAdministradores value) {
+        return new JAXBElement<GraficarAdministradores>(_GraficarAdministradores_QNAME, GraficarAdministradores.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginEstacionClaveResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "LoginEstacionClaveResponse")
+    public JAXBElement<LoginEstacionClaveResponse> createLoginEstacionClaveResponse(LoginEstacionClaveResponse value) {
+        return new JAXBElement<LoginEstacionClaveResponse>(_LoginEstacionClaveResponse_QNAME, LoginEstacionClaveResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginEstacionClave }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "LoginEstacionClave")
+    public JAXBElement<LoginEstacionClave> createLoginEstacionClave(LoginEstacionClave value) {
+        return new JAXBElement<LoginEstacionClave>(_LoginEstacionClave_QNAME, LoginEstacionClave.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CrearAdministradorResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "CrearAdministradorResponse")
+    public JAXBElement<CrearAdministradorResponse> createCrearAdministradorResponse(CrearAdministradorResponse value) {
+        return new JAXBElement<CrearAdministradorResponse>(_CrearAdministradorResponse_QNAME, CrearAdministradorResponse.class, null, value);
     }
 
 }

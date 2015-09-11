@@ -42,13 +42,85 @@ public interface WS {
     /**
      * 
      * @return
-     *     returns java.lang.String
+     *     returns boolean
      */
-    @WebMethod
+    @WebMethod(operationName = "GraficarAdministradores")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "ping", targetNamespace = "http://webservice/", className = "webservice.Ping")
-    @ResponseWrapper(localName = "pingResponse", targetNamespace = "http://webservice/", className = "webservice.PingResponse")
-    @Action(input = "http://webservice/WS/pingRequest", output = "http://webservice/WS/pingResponse")
-    public String ping();
+    @RequestWrapper(localName = "GraficarAdministradores", targetNamespace = "http://webservice/", className = "webservice.GraficarAdministradores")
+    @ResponseWrapper(localName = "GraficarAdministradoresResponse", targetNamespace = "http://webservice/", className = "webservice.GraficarAdministradoresResponse")
+    @Action(input = "http://webservice/WS/GraficarAdministradoresRequest", output = "http://webservice/WS/GraficarAdministradoresResponse")
+    public boolean graficarAdministradores();
+
+    /**
+     * 
+     * @param contrasena
+     * @param id
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "LoginEstacionClave")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "LoginEstacionClave", targetNamespace = "http://webservice/", className = "webservice.LoginEstacionClave")
+    @ResponseWrapper(localName = "LoginEstacionClaveResponse", targetNamespace = "http://webservice/", className = "webservice.LoginEstacionClaveResponse")
+    @Action(input = "http://webservice/WS/LoginEstacionClaveRequest", output = "http://webservice/WS/LoginEstacionClaveResponse")
+    public boolean loginEstacionClave(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
+        @WebParam(name = "contrasena", targetNamespace = "")
+        String contrasena);
+
+    /**
+     * 
+     * @param contrasena
+     * @param id
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "LoginEstacionGeneral")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "LoginEstacionGeneral", targetNamespace = "http://webservice/", className = "webservice.LoginEstacionGeneral")
+    @ResponseWrapper(localName = "LoginEstacionGeneralResponse", targetNamespace = "http://webservice/", className = "webservice.LoginEstacionGeneralResponse")
+    @Action(input = "http://webservice/WS/LoginEstacionGeneralRequest", output = "http://webservice/WS/LoginEstacionGeneralResponse")
+    public boolean loginEstacionGeneral(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
+        @WebParam(name = "contrasena", targetNamespace = "")
+        String contrasena);
+
+    /**
+     * 
+     * @param correo
+     * @param contrasena
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "CrearAdministrador")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "CrearAdministrador", targetNamespace = "http://webservice/", className = "webservice.CrearAdministrador")
+    @ResponseWrapper(localName = "CrearAdministradorResponse", targetNamespace = "http://webservice/", className = "webservice.CrearAdministradorResponse")
+    @Action(input = "http://webservice/WS/CrearAdministradorRequest", output = "http://webservice/WS/CrearAdministradorResponse")
+    public boolean crearAdministrador(
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo,
+        @WebParam(name = "contrasena", targetNamespace = "")
+        String contrasena);
+
+    /**
+     * 
+     * @param correo
+     * @param contrasena
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "LoginAdministrador")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "LoginAdministrador", targetNamespace = "http://webservice/", className = "webservice.LoginAdministrador")
+    @ResponseWrapper(localName = "LoginAdministradorResponse", targetNamespace = "http://webservice/", className = "webservice.LoginAdministradorResponse")
+    @Action(input = "http://webservice/WS/LoginAdministradorRequest", output = "http://webservice/WS/LoginAdministradorResponse")
+    public boolean loginAdministrador(
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo,
+        @WebParam(name = "contrasena", targetNamespace = "")
+        String contrasena);
 
 }

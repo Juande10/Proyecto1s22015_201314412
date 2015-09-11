@@ -1,20 +1,88 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://webservice/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservice/">
 
+<xs:element name="CrearAdministrador" type="tns:CrearAdministrador"/>
+
+<xs:element name="CrearAdministradorResponse" type="tns:CrearAdministradorResponse"/>
+
+<xs:element name="GraficarAdministradores" type="tns:GraficarAdministradores"/>
+
+<xs:element name="GraficarAdministradoresResponse" type="tns:GraficarAdministradoresResponse"/>
+
+<xs:element name="LoginAdministrador" type="tns:LoginAdministrador"/>
+
+<xs:element name="LoginAdministradorResponse" type="tns:LoginAdministradorResponse"/>
+
+<xs:element name="LoginEstacionClave" type="tns:LoginEstacionClave"/>
+
+<xs:element name="LoginEstacionClaveResponse" type="tns:LoginEstacionClaveResponse"/>
+
+<xs:element name="LoginEstacionGeneral" type="tns:LoginEstacionGeneral"/>
+
+<xs:element name="LoginEstacionGeneralResponse" type="tns:LoginEstacionGeneralResponse"/>
+
 <xs:element name="hello" type="tns:hello"/>
 
 <xs:element name="helloResponse" type="tns:helloResponse"/>
 
-<xs:element name="ping" type="tns:ping"/>
+<xs:complexType name="LoginEstacionGeneral">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
 
-<xs:element name="pingResponse" type="tns:pingResponse"/>
+<xs:complexType name="LoginEstacionGeneralResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
 
-<xs:complexType name="ping">
+<xs:complexType name="LoginAdministrador">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LoginAdministradorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearAdministrador">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearAdministradorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LoginEstacionClave">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LoginEstacionClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GraficarAdministradores">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="pingResponse">
+<xs:complexType name="GraficarAdministradoresResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
+<xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 

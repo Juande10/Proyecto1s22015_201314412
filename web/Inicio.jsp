@@ -3,6 +3,8 @@
     Created on : 25/08/2015, 03:22:50 PM
     Author     : Juande
 --%>
+<%@page import="javax.xml.ws.Response"%>
+<%@page import="webservice.WS"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -45,12 +47,12 @@ function mostrar(id) {
 }
 </script>
 </head>
-<body>  
+<body>     
     <%!
     public void Prueba(){
         System.out.println("Hola mundo");
     }
-    %>    
+    %>  
 
 <div class="main">
   <div class="header">
@@ -111,52 +113,129 @@ function mostrar(id) {
         <!--Formulario para iniciar sesion el administrador esta si se muestra por default al iniciar por eso no lleva el style="display: none;"-->  
         <div id="Administrador">
             <h2>Administrador</h2>
-            <form action="index.php" method="post">
+            <form action="Inicio.jsp" method="post">
                 <p><label for="lblusuario" style="font-size: 20px;">Correo: </label><br/>
-                <input type="text" name="nombre" /></p>
+                <input type="text" name="correoAdmin" /></p>
                 <p><label for="lblcontra" style="font-size: 20px;">Contraseña: </label><br/>
-                <input type="password" name="centro" /></p>
-            </form>
+                <input type="password" name="passAdmin" /></p>
+                <input type="submit" value="Iniciar Sesion Admin" name="InicioAdmin"/>
+                <%
+                if(request.getParameter("correoAdmin") != null && request.getParameter("passAdmin") != null){
+                    try {
+                        webservice.WS_Service service = new webservice.WS_Service();
+                        webservice.WS port = service.getWSPort();
+                         // TODO initialize WS operation arguments here
+                        java.lang.String correo = request.getParameter("correoAdmin");
+                        java.lang.String contrasena = request.getParameter("passAdmin");
+                        // TODO process result here
+                        boolean result = port.loginAdministrador(correo, contrasena);               
+                        if(result == true){
+                            response.sendRedirect("PrincipalAdministrador.jsp");
+                        }else{
+                            String mensaje="<script language='javascript'>alert('Usuario Administrador o contraseña incorrecta');</script>"; 
+                            out.println(mensaje);
+                        }
+                    } catch (Exception ex) {
+                        // TODO handle custom exceptions here
+                    }
+                }else{
+                    
+                }
+
+            %>
+            </form>          
         </div>
+
+        
         
         <!--Formulario para iniciar sesion la estacion clave-->  
         <div id="EsClave" style="display: none;">
             <h2>EstacionClave</h2>
-            <form action="index.php" method="post">
+            <form action="Inicio.jsp" method="post">
                 <p><label for="lblusuario" style="font-size: 20px;">ID: </label><br/>
-                <input type="text" name="nombre" /></p>
+                <input type="text" name="usuarioClave" /></p>
                 <p><label for="lblusuario" style="font-size: 20px;">Contraseña: </label><br/>
-                <input type="password" name="centro" /></p>
+                <input type="password" name="passClave" /></p>
+                <input type="submit" value="Iniciar Sesion Clave" name="InicioClave" />
+                <%
+                    if(request.getParameter("usuarioClave") != null && request.getParameter("passClave") != null){                                               
+                        try {
+                            webservice.WS_Service service = new webservice.WS_Service();
+                            webservice.WS port = service.getWSPort();
+                             // TODO initialize WS operation arguments here
+                            java.lang.String id = request.getParameter("usuarioClave");
+                            java.lang.String contrasena = request.getParameter("passClave");
+                            // TODO process result here
+                            //LO ARREGLE VALIDANDO SI LA RAIZ DEL ARBOL NO ERA NULL
+                            boolean result = port.loginEstacionClave(id, contrasena);
+                            if(result == true){
+                                response.sendRedirect("PrincipalEstacionClave.jsp");
+                            }else{
+                                String mensaje="<script language='javascript'>alert('Usuario Clave o contraseña incorrecta');</script>"; 
+                                out.println(mensaje);   
+                            }
+                        } catch (Exception ex) {
+                            // TODO handle custom exceptions here
+                            String mensaje="<script language='javascript'>alert('ERROR!');</script>"; 
+                            out.println(mensaje);   
+                        }
+                    }else{
+
+                    }
+
+            %>
             </form>
         </div>
         
         <!--Formulario para iniciar sesion la estacion general-->  
         <div id="EsGeneral" style="display: none;">
             <h2>Estacion General</h2>
-            <form action="index.php" method="post">
+            <form action="Inicio.jsp" method="post">
                 <p><label for="lblusuario" style="font-size: 20px;">ID: </label><br/>
-                <input type="text" name="nombre" /></p>
+                <input type="text" name="usuarioGeneral" /></p>
                 <p><label for="lblcontra" style="font-size: 20px;">Contraseña: </label><br/>
-                <input type="password" name="centro" /></p>
-            </form>
+                <input type="password" name="passGeneral" /></p>
+                <input type="submit" value="Iniciar Sesion General" name="InicioGeneral"/>
+                <%
+                    if(request.getParameter("usuarioGeneral") != null && request.getParameter("passGeneral") != null){
+                        try {
+                            webservice.WS_Service service = new webservice.WS_Service();
+                            webservice.WS port = service.getWSPort();
+                             // TODO initialize WS operation arguments here
+                            java.lang.String id = request.getParameter("usuarioGeneral");
+                            java.lang.String contrasena = request.getParameter("passGeneral");
+                            // TODO process result here
+                            boolean result = port.loginEstacionGeneral(id, contrasena);
+                            out.println("Result = "+result);
+                            if(result == true){
+                                response.sendRedirect("PrincipalEstacionGeneral.jsp");
+                            }else{
+                                String mensaje="<script language='javascript'>alert('Usuario General o contraseña incorrecta');</script>"; 
+                                out.println(mensaje);
+                            }
+                        } catch (Exception ex) {
+                            // TODO handle custom exceptions here
+                        }
+                    }                                         
+            %>
+
         </div>
         
         <!--Formulario para iniciar sesion el Chofer-->  
         <div id="Chofer" style="display: none;">
             <h2>Chofer</h2>
-            <form action="index.php" method="post">
+            <form action="Inicio.jsp" method="post">
                 <p><label for="lblusuario" style="font-size: 20px;">ID: </label><br/>
                 <input type="text" name="nombre" /></p>
                 <p><label for="lblcontra" style="font-size: 20px;">Contarseña: </label><br/>
-                <input type="password" name="centro" /></p>
+                <input type="password" name="centro" /></p>    
+                <input type="button"
+                value="Iniciar Sesion Chofer"
+                id="btnInicio" 
+                name="btnInicio" 
+                onclick= "self.location.href = 'PrincipalAdministrador.jsp'" />
             </form>
-        </div>        
-
-          <input type="button"
-          value="Iniciar Sesion"
-          id="btnInicio" 
-          name="btnInicio" 
-          onclick= "self.location.href = 'PrincipalAdministrador.jsp'" />
+        </div>                
       </div>
       <div class="clr"></div>
     </div>

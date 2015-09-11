@@ -1,6 +1,6 @@
 <%-- 
-    Document   : PrincipalAdministrador
-    Created on : 27/08/2015, 10:46:45 PM
+    Document   : Reportes
+    Created on : 10/09/2015, 03:03:37 PM
     Author     : Juande
 --%>
 
@@ -8,14 +8,43 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Pagina Principal de Administradores</title>
+<title>Administracion de Administradores</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/cufon-yui.js"></script>
 <script type="text/javascript" src="js/arial.js"></script>
 <script type="text/javascript" src="js/cuf_run.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+function mostrar(id) {
+    if (id === "Crear") {
+        $("#Crear").show();
+        $("#Modificar").hide();
+        $("#Eliminar").hide();
+    }
+
+    if (id === "Modificar") {
+        $("#Crear").hide();
+        $("#Modificar").show();
+        $("#Eliminar").hide();
+    }
+
+    if (id === "Eliminar") {
+        $("#Crear").hide();
+        $("#Modificar").hide();
+        $("#Eliminar").show();
+    }
+}
+
+function refresh()
+{
+window.location='Reportes.jsp';
+}
+</script>
 </head>
+    
 <body>  
+    
     <%!
     public void Prueba(){
         System.out.println("Hola mundo");
@@ -31,14 +60,14 @@
       <div class="clr"></div>
       <div class="menu_nav">
         <ul>
-          <li class="active"><a href="PrincipalAdministrador.jsp">Pagina Principal</a></li>
-          <li><a href="AdminAdministradores.jsp">Administradores</a></li>
+          <li><a href="PrincipalAdministrador.jsp">Pagina Principal</a></li>
+          <li ><a href="AdminAdministradores.jsp">Administradores</a></li>
           <li><a href="AdminEsGeneral.jsp">Estaciones Generales</a></li>
           <li><a href="AdminEsClave.jsp">Estaciones Clave</a></li>
           <li><a href="AdminChofer.jsp">Choferes</a></li>
           <li><a href="AdminBuses.jsp">Buses</a></li>
           <li><a href="AdminRutas.jsp">Rutas</a></li>
-          <li><a href="Reportes.jsp">Reportes</a></li>
+          <li class="active"><a href="Reportes.jsp">Reportes</a></li>
         </ul>
       </div>
       <div class="clr"></div>
@@ -49,24 +78,55 @@
       <div class="clr"></div>
       <div class="mainbar">
         <div class="article">
-          <h2><span>Proyecto</span> Transmetro</h2>
-      
-          <div class="clr"></div>
-          <img src="images/img1.jpg" width="201" height="135" alt="" class="fl" />
-          <p> El administrador es el encargado del manejo de la asignación de los buses, 
-              la agregación de los choferes y los usuarios de las estaciones. 
-              De inicio para crear todo el sistema debe tener interno un servidor ya creado 
-              esto se puede hacer ya dentro del código, esto es para que se tenga ya uno 
-              definido, luego es este debe mostrar algún menú donde se agreguen todos los 
-              demás usuarios, los cuales pueden ser:
-              &nbsp;
-               <p>  Para administrarar solo seleccione el tipo de usuario que desea administrar en las pestañas de arriba
-               <p> - Administrador: Para el crear un administrador se debe tener el correo, y su contraseña &nbsp;
-               <p>- Estaciones clave: Para crear estaciones se debe asignarles un id numérico, el nombre de la estación y su contraseña &nbsp;
-               <p> - Estaciones generales: Para crear estaciones se debe asignarles un id numérico, el nombre de la estación y su contraseña &nbsp;
-               <p> - Choferes: Para crear un chofer se debe asignar por medio de su nombre apellido y una clave y tiene su respectiva contraseña &nbsp;
-               <p> - Crear bus: al crear el bus solo se tiene que medir el número del bus que se va a registrar, este no tiene usuario solo el administrador puede verlo este se tiene que almacenar en una lista doblemente enlazada &nbsp;
-               <p> - Crear ruta: La ruta se crea por medio de un Nombre de la ruta, y el ingreso de las estaciones por las cuales este tiene que pasar, por ejemplo existe estaciones A,B,C</p>
+          <h2><span>Proyecto</span> Transmetro</h2>      
+          <div class="clr"></div> 
+              <%-- start web service invocation --%><hr/>
+                            <%
+                            try {
+                                webservice.WS_Service service = new webservice.WS_Service();
+                                webservice.WS port = service.getWSPort();
+                                // TODO process result here
+                                boolean result = port.graficarAdministradores();
+                                if(result = true){
+                                    %>
+                                    <form action="Reportes.jsp" method="post" type="submit">
+                                        <img src="GraficaAdmins.jpg">
+                                    </form>
+                                   
+                                    <%
+                                }
+                            } catch (Exception ex) {
+                                // TODO handle custom exceptions here
+                            }
+                            
+                            %>
+                        <%-- end web service invocation --%><hr/>          
+                        
+                        
+                        
+                <!--Formulario para crear un usuario administrador esta si se muestra por default al iniciar por eso no lleva el style="display: none;"-->  
+                <div id="Crear">
+                    <h2>Grafica de Administradores</h2>
+                    <form action="Reportes.jsp" method="post">
+                                         
+                    </form>                    
+                </div>
+                
+                <!--Formulario para modificar informacion de un administrador-->  
+                <div id="Modificar" style="display: none;">
+                    <h2>Modificar Usuario Administrador</h2>
+                    <form action="Reportes.jsp" method="post" >
+                        
+                    </form>
+                </div>
+                
+                <!--Formulario para eliminar informacion de un administrador-->  
+                <div id="Eliminar" style="display: none;">
+                    <h2>Eliminar Usuario Administrador</h2>
+                    <form action="AdminAdministradores.jsp" method="post" >
+                        
+                    </form>
+                </div>
         </div>
         <div class="article">   
         </div>  

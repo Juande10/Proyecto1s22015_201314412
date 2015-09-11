@@ -1,6 +1,6 @@
 <%-- 
-    Document   : PrincipalAdministrador
-    Created on : 27/08/2015, 10:46:45 PM
+    Document   : PrincipalEstacionGeneral
+    Created on : 9/09/2015, 09:57:10 PM
     Author     : Juande
 --%>
 
@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Pagina Principal de Administradores</title>
+<title>Pagina Principal de Estaciones Generales</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="js/cufon-yui.js"></script>
@@ -26,19 +26,13 @@
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-        <h1><a href="#">Bienvenido<span> Administrador</span></a> <small>201314412</small></h1>
+        <h1><a href="#">Bienvenido<span> Estacion General</span></a> <small>201314412</small></h1>
       </div>
       <div class="clr"></div>
       <div class="menu_nav">
         <ul>
           <li class="active"><a href="PrincipalAdministrador.jsp">Pagina Principal</a></li>
           <li><a href="AdminAdministradores.jsp">Administradores</a></li>
-          <li><a href="AdminEsGeneral.jsp">Estaciones Generales</a></li>
-          <li><a href="AdminEsClave.jsp">Estaciones Clave</a></li>
-          <li><a href="AdminChofer.jsp">Choferes</a></li>
-          <li><a href="AdminBuses.jsp">Buses</a></li>
-          <li><a href="AdminRutas.jsp">Rutas</a></li>
-          <li><a href="Reportes.jsp">Reportes</a></li>
         </ul>
       </div>
       <div class="clr"></div>
@@ -53,20 +47,10 @@
       
           <div class="clr"></div>
           <img src="images/img1.jpg" width="201" height="135" alt="" class="fl" />
-          <p> El administrador es el encargado del manejo de la asignación de los buses, 
-              la agregación de los choferes y los usuarios de las estaciones. 
-              De inicio para crear todo el sistema debe tener interno un servidor ya creado 
-              esto se puede hacer ya dentro del código, esto es para que se tenga ya uno 
-              definido, luego es este debe mostrar algún menú donde se agreguen todos los 
-              demás usuarios, los cuales pueden ser:
+          <p> Las estaciones generales tomara cuantos usuarios hay en el sistema y si necesita un bus extra para sacar a las personas
+              
               &nbsp;
-               <p>  Para administrarar solo seleccione el tipo de usuario que desea administrar en las pestañas de arriba
-               <p> - Administrador: Para el crear un administrador se debe tener el correo, y su contraseña &nbsp;
-               <p>- Estaciones clave: Para crear estaciones se debe asignarles un id numérico, el nombre de la estación y su contraseña &nbsp;
-               <p> - Estaciones generales: Para crear estaciones se debe asignarles un id numérico, el nombre de la estación y su contraseña &nbsp;
-               <p> - Choferes: Para crear un chofer se debe asignar por medio de su nombre apellido y una clave y tiene su respectiva contraseña &nbsp;
-               <p> - Crear bus: al crear el bus solo se tiene que medir el número del bus que se va a registrar, este no tiene usuario solo el administrador puede verlo este se tiene que almacenar en una lista doblemente enlazada &nbsp;
-               <p> - Crear ruta: La ruta se crea por medio de un Nombre de la ruta, y el ingreso de las estaciones por las cuales este tiene que pasar, por ejemplo existe estaciones A,B,C</p>
+               <p> - Este usuario puede ver todas las demas estaciones y brindarles apoyo</p>
         </div>
         <div class="article">   
         </div>  
