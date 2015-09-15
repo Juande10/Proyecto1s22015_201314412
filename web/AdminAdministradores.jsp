@@ -4,6 +4,7 @@
     Author     : Juande
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -87,6 +88,7 @@ function mostrar(id) {
                     <option value="Eliminar">Eliminar Administrador</option>
                  </select>
                 </form>
+               
                 <!--Formulario para crear un usuario administrador esta si se muestra por default al iniciar por eso no lleva el style="display: none;"-->  
                 <div id="Crear">
                     <h2>Crear Usuario Administrador</h2>
@@ -96,10 +98,7 @@ function mostrar(id) {
                         
                         <p><label for="lblcontra" style="font-size: 20px;">Asigne una Contraseña: </label><br/>
                         <input type="password" name="CrearContraAdmin" /></p>
-                        
-                        <p><label for="lblcontra" style="font-size: 20px;">Confirme la Contraseña: </label><br/>
-                        <input type="password" name="ConfirmaContra" /></p>
-                        
+
                         <input type="submit" value="Crear Administrador" name="CrearAdmin"/>
                             <%-- start web service invocation --%><hr/>
                             <%
@@ -148,14 +147,75 @@ function mostrar(id) {
                     </form>
                 </div>
                 
+                
                 <!--Formulario para eliminar informacion de un administrador-->  
                 <div id="Eliminar" style="display: none;">
                     <h2>Eliminar Usuario Administrador</h2>
                     <form action="AdminAdministradores.jsp" method="post" >
-                        <p><label for="lblusuario" style="font-size: 20px;">Escriba el correo del usuario a eliminar: </label><br/>
-                        <input type="text" name="correoeliminar" /></p>
+                        <p><label for="lblusuario" style="font-size: 20px;">Seleccione el correo del usuario a eliminar: </label><br/>  
+                            <select name="correoeliminar">    
+                                <option value="Seleccione">Seleccione</option>
+                                    <%-- start web service invocation --%><hr/>
+                                <%
+                                try {
+                                    webservice.WS_Service service = new webservice.WS_Service();
+                                    webservice.WS port = service.getWSPort();
+                                    // TODO process result here
+                                    java.util.List<java.lang.Object> result = port.devolverListaAdmins();
+                                    int tamano = result.size();
+                                    for(int i = tamano - 1;i>=0;i--){
+                                        String correos = result.get(i).toString();
+                                        %>
+                                        <option><%=correos%> </option>
+                                        <%
+                                        }
+                                    }catch (Exception ex) {
+                                    // TODO handle custom exceptions here
+                                }
+                                %>
+                                <%-- end web service invocation --%><hr/>
+                        </select>        
+                        <input type="submit" value="Eliminar"/>
+                        
+                            <%-- start web service invocation --%><hr/>
+                        <%
+                        if(request.getParameter("correoeliminar") != null){
+                            String seleccionado = request.getParameter("correoeliminar");
+                            if(seleccionado.equals("Seleccione")){
+                                String mensaje="<script language='javascript'>alert('Seleccione un administrador');</script>"; 
+                                out.println(mensaje);
+                            }else{
+                                try {                                    
+                                webservice.WS_Service service = new webservice.WS_Service();
+                                webservice.WS port = service.getWSPort();
+                                 // TODO initialize WS operation arguments here
+                                java.lang.String correo = request.getParameter("correoeliminar");
+                                // TODO process result here
+                                boolean result = port.eliminarAdministrador(correo);
+                                    if(result == true){
+                                        String mensaje="<script language='javascript'>alert('Eliminacion exitosa');</script>"; 
+                                        out.println(mensaje);
+                                    }else{
+                                        String mensaje="<script language='javascript'>alert('Administrador no encontrado');</script>"; 
+                                        out.println(mensaje);
+                                    }
+                                } catch (Exception ex) {
+                                    // TODO handle custom exceptions here
+                                    String mensaje="<script language='javascript'>alert('Error en la eliminacion');</script>"; 
+                                    out.println(mensaje);
+                                }
+                                seleccionado = "Seleccione";
+                            }      
+                        }                        
+                        %>
+                        <%-- end web service invocation --%><hr/>
+
+                        
                     </form>
                 </div>
+                        
+                        
+                        
         </div>
         <div class="article">   
         </div>  

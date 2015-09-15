@@ -4,35 +4,59 @@
 <xsd:import namespace="http://webservice/" schemaLocation="http://localhost:8080/WebService/WS?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello"/>
+<message name="LlenarListaNombresEstacionesGenerales">
+<part name="parameters" element="tns:LlenarListaNombresEstacionesGenerales"/>
 </message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse"/>
+<message name="LlenarListaNombresEstacionesGeneralesResponse">
+<part name="parameters" element="tns:LlenarListaNombresEstacionesGeneralesResponse"/>
 </message>
-<message name="GraficarAdministradores">
-<part name="parameters" element="tns:GraficarAdministradores"/>
+<message name="LlenarListaNombresEstacionesClave">
+<part name="parameters" element="tns:LlenarListaNombresEstacionesClave"/>
 </message>
-<message name="GraficarAdministradoresResponse">
-<part name="parameters" element="tns:GraficarAdministradoresResponse"/>
+<message name="LlenarListaNombresEstacionesClaveResponse">
+<part name="parameters" element="tns:LlenarListaNombresEstacionesClaveResponse"/>
 </message>
-<message name="LoginEstacionClave">
-<part name="parameters" element="tns:LoginEstacionClave"/>
+<message name="GraficarChoferes">
+<part name="parameters" element="tns:GraficarChoferes"/>
 </message>
-<message name="LoginEstacionClaveResponse">
-<part name="parameters" element="tns:LoginEstacionClaveResponse"/>
+<message name="GraficarChoferesResponse">
+<part name="parameters" element="tns:GraficarChoferesResponse"/>
 </message>
-<message name="LoginEstacionGeneral">
-<part name="parameters" element="tns:LoginEstacionGeneral"/>
+<message name="LlenarListaAdministradores">
+<part name="parameters" element="tns:LlenarListaAdministradores"/>
 </message>
-<message name="LoginEstacionGeneralResponse">
-<part name="parameters" element="tns:LoginEstacionGeneralResponse"/>
+<message name="LlenarListaAdministradoresResponse">
+<part name="parameters" element="tns:LlenarListaAdministradoresResponse"/>
 </message>
-<message name="CrearAdministrador">
-<part name="parameters" element="tns:CrearAdministrador"/>
+<message name="LlenarListaEstacionesGenerales">
+<part name="parameters" element="tns:LlenarListaEstacionesGenerales"/>
 </message>
-<message name="CrearAdministradorResponse">
-<part name="parameters" element="tns:CrearAdministradorResponse"/>
+<message name="LlenarListaEstacionesGeneralesResponse">
+<part name="parameters" element="tns:LlenarListaEstacionesGeneralesResponse"/>
+</message>
+<message name="EliminarEstacionClave">
+<part name="parameters" element="tns:EliminarEstacionClave"/>
+</message>
+<message name="EliminarEstacionClaveResponse">
+<part name="parameters" element="tns:EliminarEstacionClaveResponse"/>
+</message>
+<message name="DevolverListaAdmins">
+<part name="parameters" element="tns:DevolverListaAdmins"/>
+</message>
+<message name="DevolverListaAdminsResponse">
+<part name="parameters" element="tns:DevolverListaAdminsResponse"/>
+</message>
+<message name="DevolverNombresChoferes">
+<part name="parameters" element="tns:DevolverNombresChoferes"/>
+</message>
+<message name="DevolverNombresChoferesResponse">
+<part name="parameters" element="tns:DevolverNombresChoferesResponse"/>
+</message>
+<message name="DevolverNombresClave">
+<part name="parameters" element="tns:DevolverNombresClave"/>
+</message>
+<message name="DevolverNombresClaveResponse">
+<part name="parameters" element="tns:DevolverNombresClaveResponse"/>
 </message>
 <message name="LoginAdministrador">
 <part name="parameters" element="tns:LoginAdministrador"/>
@@ -40,35 +64,241 @@
 <message name="LoginAdministradorResponse">
 <part name="parameters" element="tns:LoginAdministradorResponse"/>
 </message>
+<message name="CrearEstacionGeneral">
+<part name="parameters" element="tns:CrearEstacionGeneral"/>
+</message>
+<message name="CrearEstacionGeneralResponse">
+<part name="parameters" element="tns:CrearEstacionGeneralResponse"/>
+</message>
+<message name="LlenarListaEstacionesClave">
+<part name="parameters" element="tns:LlenarListaEstacionesClave"/>
+</message>
+<message name="LlenarListaEstacionesClaveResponse">
+<part name="parameters" element="tns:LlenarListaEstacionesClaveResponse"/>
+</message>
+<message name="LoginEstacionClave">
+<part name="parameters" element="tns:LoginEstacionClave"/>
+</message>
+<message name="LoginEstacionClaveResponse">
+<part name="parameters" element="tns:LoginEstacionClaveResponse"/>
+</message>
+<message name="CrearEstacionClave">
+<part name="parameters" element="tns:CrearEstacionClave"/>
+</message>
+<message name="CrearEstacionClaveResponse">
+<part name="parameters" element="tns:CrearEstacionClaveResponse"/>
+</message>
+<message name="GraficarAdministradores">
+<part name="parameters" element="tns:GraficarAdministradores"/>
+</message>
+<message name="GraficarAdministradoresResponse">
+<part name="parameters" element="tns:GraficarAdministradoresResponse"/>
+</message>
+<message name="DevolverNombresGeneral">
+<part name="parameters" element="tns:DevolverNombresGeneral"/>
+</message>
+<message name="DevolverNombresGeneralResponse">
+<part name="parameters" element="tns:DevolverNombresGeneralResponse"/>
+</message>
+<message name="EliminarEstacionGeneral">
+<part name="parameters" element="tns:EliminarEstacionGeneral"/>
+</message>
+<message name="EliminarEstacionGeneralResponse">
+<part name="parameters" element="tns:EliminarEstacionGeneralResponse"/>
+</message>
+<message name="LoginEstacionGeneral">
+<part name="parameters" element="tns:LoginEstacionGeneral"/>
+</message>
+<message name="LoginEstacionGeneralResponse">
+<part name="parameters" element="tns:LoginEstacionGeneralResponse"/>
+</message>
+<message name="EliminarAdministrador">
+<part name="parameters" element="tns:EliminarAdministrador"/>
+</message>
+<message name="EliminarAdministradorResponse">
+<part name="parameters" element="tns:EliminarAdministradorResponse"/>
+</message>
+<message name="DevolverIdsGeneral">
+<part name="parameters" element="tns:DevolverIdsGeneral"/>
+</message>
+<message name="DevolverIdsGeneralResponse">
+<part name="parameters" element="tns:DevolverIdsGeneralResponse"/>
+</message>
+<message name="CrearAdministrador">
+<part name="parameters" element="tns:CrearAdministrador"/>
+</message>
+<message name="CrearAdministradorResponse">
+<part name="parameters" element="tns:CrearAdministradorResponse"/>
+</message>
+<message name="LlenarListaNombreDeChoferes">
+<part name="parameters" element="tns:LlenarListaNombreDeChoferes"/>
+</message>
+<message name="LlenarListaNombreDeChoferesResponse">
+<part name="parameters" element="tns:LlenarListaNombreDeChoferesResponse"/>
+</message>
+<message name="DevolverIdsChoferes">
+<part name="parameters" element="tns:DevolverIdsChoferes"/>
+</message>
+<message name="DevolverIdsChoferesResponse">
+<part name="parameters" element="tns:DevolverIdsChoferesResponse"/>
+</message>
+<message name="LlenarListaIdDeChoferes">
+<part name="parameters" element="tns:LlenarListaIdDeChoferes"/>
+</message>
+<message name="LlenarListaIdDeChoferesResponse">
+<part name="parameters" element="tns:LlenarListaIdDeChoferesResponse"/>
+</message>
+<message name="DevolverIdsClave">
+<part name="parameters" element="tns:DevolverIdsClave"/>
+</message>
+<message name="DevolverIdsClaveResponse">
+<part name="parameters" element="tns:DevolverIdsClaveResponse"/>
+</message>
+<message name="CrearChofer">
+<part name="parameters" element="tns:CrearChofer"/>
+</message>
+<message name="CrearChoferResponse">
+<part name="parameters" element="tns:CrearChoferResponse"/>
+</message>
+<message name="BorrarChofer">
+<part name="parameters" element="tns:BorrarChofer"/>
+</message>
+<message name="BorrarChoferResponse">
+<part name="parameters" element="tns:BorrarChoferResponse"/>
+</message>
+<message name="hello">
+<part name="parameters" element="tns:hello"/>
+</message>
+<message name="helloResponse">
+<part name="parameters" element="tns:helloResponse"/>
+</message>
+<message name="LoginChofer">
+<part name="parameters" element="tns:LoginChofer"/>
+</message>
+<message name="LoginChoferResponse">
+<part name="parameters" element="tns:LoginChoferResponse"/>
+</message>
 <portType name="WS">
-<operation name="hello">
-<input wsam:Action="http://webservice/WS/helloRequest" message="tns:hello"/>
-<output wsam:Action="http://webservice/WS/helloResponse" message="tns:helloResponse"/>
+<operation name="LlenarListaNombresEstacionesGenerales">
+<input wsam:Action="http://webservice/WS/LlenarListaNombresEstacionesGeneralesRequest" message="tns:LlenarListaNombresEstacionesGenerales"/>
+<output wsam:Action="http://webservice/WS/LlenarListaNombresEstacionesGeneralesResponse" message="tns:LlenarListaNombresEstacionesGeneralesResponse"/>
 </operation>
-<operation name="GraficarAdministradores">
-<input wsam:Action="http://webservice/WS/GraficarAdministradoresRequest" message="tns:GraficarAdministradores"/>
-<output wsam:Action="http://webservice/WS/GraficarAdministradoresResponse" message="tns:GraficarAdministradoresResponse"/>
+<operation name="LlenarListaNombresEstacionesClave">
+<input wsam:Action="http://webservice/WS/LlenarListaNombresEstacionesClaveRequest" message="tns:LlenarListaNombresEstacionesClave"/>
+<output wsam:Action="http://webservice/WS/LlenarListaNombresEstacionesClaveResponse" message="tns:LlenarListaNombresEstacionesClaveResponse"/>
 </operation>
-<operation name="LoginEstacionClave">
-<input wsam:Action="http://webservice/WS/LoginEstacionClaveRequest" message="tns:LoginEstacionClave"/>
-<output wsam:Action="http://webservice/WS/LoginEstacionClaveResponse" message="tns:LoginEstacionClaveResponse"/>
+<operation name="GraficarChoferes">
+<input wsam:Action="http://webservice/WS/GraficarChoferesRequest" message="tns:GraficarChoferes"/>
+<output wsam:Action="http://webservice/WS/GraficarChoferesResponse" message="tns:GraficarChoferesResponse"/>
 </operation>
-<operation name="LoginEstacionGeneral">
-<input wsam:Action="http://webservice/WS/LoginEstacionGeneralRequest" message="tns:LoginEstacionGeneral"/>
-<output wsam:Action="http://webservice/WS/LoginEstacionGeneralResponse" message="tns:LoginEstacionGeneralResponse"/>
+<operation name="LlenarListaAdministradores">
+<input wsam:Action="http://webservice/WS/LlenarListaAdministradoresRequest" message="tns:LlenarListaAdministradores"/>
+<output wsam:Action="http://webservice/WS/LlenarListaAdministradoresResponse" message="tns:LlenarListaAdministradoresResponse"/>
 </operation>
-<operation name="CrearAdministrador">
-<input wsam:Action="http://webservice/WS/CrearAdministradorRequest" message="tns:CrearAdministrador"/>
-<output wsam:Action="http://webservice/WS/CrearAdministradorResponse" message="tns:CrearAdministradorResponse"/>
+<operation name="LlenarListaEstacionesGenerales">
+<input wsam:Action="http://webservice/WS/LlenarListaEstacionesGeneralesRequest" message="tns:LlenarListaEstacionesGenerales"/>
+<output wsam:Action="http://webservice/WS/LlenarListaEstacionesGeneralesResponse" message="tns:LlenarListaEstacionesGeneralesResponse"/>
+</operation>
+<operation name="EliminarEstacionClave">
+<input wsam:Action="http://webservice/WS/EliminarEstacionClaveRequest" message="tns:EliminarEstacionClave"/>
+<output wsam:Action="http://webservice/WS/EliminarEstacionClaveResponse" message="tns:EliminarEstacionClaveResponse"/>
+</operation>
+<operation name="DevolverListaAdmins">
+<input wsam:Action="http://webservice/WS/DevolverListaAdminsRequest" message="tns:DevolverListaAdmins"/>
+<output wsam:Action="http://webservice/WS/DevolverListaAdminsResponse" message="tns:DevolverListaAdminsResponse"/>
+</operation>
+<operation name="DevolverNombresChoferes">
+<input wsam:Action="http://webservice/WS/DevolverNombresChoferesRequest" message="tns:DevolverNombresChoferes"/>
+<output wsam:Action="http://webservice/WS/DevolverNombresChoferesResponse" message="tns:DevolverNombresChoferesResponse"/>
+</operation>
+<operation name="DevolverNombresClave">
+<input wsam:Action="http://webservice/WS/DevolverNombresClaveRequest" message="tns:DevolverNombresClave"/>
+<output wsam:Action="http://webservice/WS/DevolverNombresClaveResponse" message="tns:DevolverNombresClaveResponse"/>
 </operation>
 <operation name="LoginAdministrador">
 <input wsam:Action="http://webservice/WS/LoginAdministradorRequest" message="tns:LoginAdministrador"/>
 <output wsam:Action="http://webservice/WS/LoginAdministradorResponse" message="tns:LoginAdministradorResponse"/>
 </operation>
+<operation name="CrearEstacionGeneral">
+<input wsam:Action="http://webservice/WS/CrearEstacionGeneralRequest" message="tns:CrearEstacionGeneral"/>
+<output wsam:Action="http://webservice/WS/CrearEstacionGeneralResponse" message="tns:CrearEstacionGeneralResponse"/>
+</operation>
+<operation name="LlenarListaEstacionesClave">
+<input wsam:Action="http://webservice/WS/LlenarListaEstacionesClaveRequest" message="tns:LlenarListaEstacionesClave"/>
+<output wsam:Action="http://webservice/WS/LlenarListaEstacionesClaveResponse" message="tns:LlenarListaEstacionesClaveResponse"/>
+</operation>
+<operation name="LoginEstacionClave">
+<input wsam:Action="http://webservice/WS/LoginEstacionClaveRequest" message="tns:LoginEstacionClave"/>
+<output wsam:Action="http://webservice/WS/LoginEstacionClaveResponse" message="tns:LoginEstacionClaveResponse"/>
+</operation>
+<operation name="CrearEstacionClave">
+<input wsam:Action="http://webservice/WS/CrearEstacionClaveRequest" message="tns:CrearEstacionClave"/>
+<output wsam:Action="http://webservice/WS/CrearEstacionClaveResponse" message="tns:CrearEstacionClaveResponse"/>
+</operation>
+<operation name="GraficarAdministradores">
+<input wsam:Action="http://webservice/WS/GraficarAdministradoresRequest" message="tns:GraficarAdministradores"/>
+<output wsam:Action="http://webservice/WS/GraficarAdministradoresResponse" message="tns:GraficarAdministradoresResponse"/>
+</operation>
+<operation name="DevolverNombresGeneral">
+<input wsam:Action="http://webservice/WS/DevolverNombresGeneralRequest" message="tns:DevolverNombresGeneral"/>
+<output wsam:Action="http://webservice/WS/DevolverNombresGeneralResponse" message="tns:DevolverNombresGeneralResponse"/>
+</operation>
+<operation name="EliminarEstacionGeneral">
+<input wsam:Action="http://webservice/WS/EliminarEstacionGeneralRequest" message="tns:EliminarEstacionGeneral"/>
+<output wsam:Action="http://webservice/WS/EliminarEstacionGeneralResponse" message="tns:EliminarEstacionGeneralResponse"/>
+</operation>
+<operation name="LoginEstacionGeneral">
+<input wsam:Action="http://webservice/WS/LoginEstacionGeneralRequest" message="tns:LoginEstacionGeneral"/>
+<output wsam:Action="http://webservice/WS/LoginEstacionGeneralResponse" message="tns:LoginEstacionGeneralResponse"/>
+</operation>
+<operation name="EliminarAdministrador">
+<input wsam:Action="http://webservice/WS/EliminarAdministradorRequest" message="tns:EliminarAdministrador"/>
+<output wsam:Action="http://webservice/WS/EliminarAdministradorResponse" message="tns:EliminarAdministradorResponse"/>
+</operation>
+<operation name="DevolverIdsGeneral">
+<input wsam:Action="http://webservice/WS/DevolverIdsGeneralRequest" message="tns:DevolverIdsGeneral"/>
+<output wsam:Action="http://webservice/WS/DevolverIdsGeneralResponse" message="tns:DevolverIdsGeneralResponse"/>
+</operation>
+<operation name="CrearAdministrador">
+<input wsam:Action="http://webservice/WS/CrearAdministradorRequest" message="tns:CrearAdministrador"/>
+<output wsam:Action="http://webservice/WS/CrearAdministradorResponse" message="tns:CrearAdministradorResponse"/>
+</operation>
+<operation name="LlenarListaNombreDeChoferes">
+<input wsam:Action="http://webservice/WS/LlenarListaNombreDeChoferesRequest" message="tns:LlenarListaNombreDeChoferes"/>
+<output wsam:Action="http://webservice/WS/LlenarListaNombreDeChoferesResponse" message="tns:LlenarListaNombreDeChoferesResponse"/>
+</operation>
+<operation name="DevolverIdsChoferes">
+<input wsam:Action="http://webservice/WS/DevolverIdsChoferesRequest" message="tns:DevolverIdsChoferes"/>
+<output wsam:Action="http://webservice/WS/DevolverIdsChoferesResponse" message="tns:DevolverIdsChoferesResponse"/>
+</operation>
+<operation name="LlenarListaIdDeChoferes">
+<input wsam:Action="http://webservice/WS/LlenarListaIdDeChoferesRequest" message="tns:LlenarListaIdDeChoferes"/>
+<output wsam:Action="http://webservice/WS/LlenarListaIdDeChoferesResponse" message="tns:LlenarListaIdDeChoferesResponse"/>
+</operation>
+<operation name="DevolverIdsClave">
+<input wsam:Action="http://webservice/WS/DevolverIdsClaveRequest" message="tns:DevolverIdsClave"/>
+<output wsam:Action="http://webservice/WS/DevolverIdsClaveResponse" message="tns:DevolverIdsClaveResponse"/>
+</operation>
+<operation name="CrearChofer">
+<input wsam:Action="http://webservice/WS/CrearChoferRequest" message="tns:CrearChofer"/>
+<output wsam:Action="http://webservice/WS/CrearChoferResponse" message="tns:CrearChoferResponse"/>
+</operation>
+<operation name="BorrarChofer">
+<input wsam:Action="http://webservice/WS/BorrarChoferRequest" message="tns:BorrarChofer"/>
+<output wsam:Action="http://webservice/WS/BorrarChoferResponse" message="tns:BorrarChoferResponse"/>
+</operation>
+<operation name="hello">
+<input wsam:Action="http://webservice/WS/helloRequest" message="tns:hello"/>
+<output wsam:Action="http://webservice/WS/helloResponse" message="tns:helloResponse"/>
+</operation>
+<operation name="LoginChofer">
+<input wsam:Action="http://webservice/WS/LoginChoferRequest" message="tns:LoginChofer"/>
+<output wsam:Action="http://webservice/WS/LoginChoferResponse" message="tns:LoginChoferResponse"/>
+</operation>
 </portType>
 <binding name="WSPortBinding" type="tns:WS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="hello">
+<operation name="LlenarListaNombresEstacionesGenerales">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -77,7 +307,97 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="GraficarAdministradores">
+<operation name="LlenarListaNombresEstacionesClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GraficarChoferes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="LlenarListaAdministradores">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="LlenarListaEstacionesGenerales">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarEstacionClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DevolverListaAdmins">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DevolverNombresChoferes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DevolverNombresClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="LoginAdministrador">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CrearEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="LlenarListaEstacionesClave">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -95,7 +415,61 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="CrearEstacionClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GraficarAdministradores">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DevolverNombresGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="LoginEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarAdministrador">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DevolverIdsGeneral">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -113,7 +487,70 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="LoginAdministrador">
+<operation name="LlenarListaNombreDeChoferes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DevolverIdsChoferes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="LlenarListaIdDeChoferes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DevolverIdsClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CrearChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="BorrarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="hello">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="LoginChofer">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

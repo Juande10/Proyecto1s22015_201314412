@@ -1,16 +1,108 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://webservice/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://webservice/">
 
+<xs:element name="BorrarChofer" type="tns:BorrarChofer"/>
+
+<xs:element name="BorrarChoferResponse" type="tns:BorrarChoferResponse"/>
+
 <xs:element name="CrearAdministrador" type="tns:CrearAdministrador"/>
 
 <xs:element name="CrearAdministradorResponse" type="tns:CrearAdministradorResponse"/>
+
+<xs:element name="CrearChofer" type="tns:CrearChofer"/>
+
+<xs:element name="CrearChoferResponse" type="tns:CrearChoferResponse"/>
+
+<xs:element name="CrearEstacionClave" type="tns:CrearEstacionClave"/>
+
+<xs:element name="CrearEstacionClaveResponse" type="tns:CrearEstacionClaveResponse"/>
+
+<xs:element name="CrearEstacionGeneral" type="tns:CrearEstacionGeneral"/>
+
+<xs:element name="CrearEstacionGeneralResponse" type="tns:CrearEstacionGeneralResponse"/>
+
+<xs:element name="DevolverIdsChoferes" type="tns:DevolverIdsChoferes"/>
+
+<xs:element name="DevolverIdsChoferesResponse" type="tns:DevolverIdsChoferesResponse"/>
+
+<xs:element name="DevolverIdsClave" type="tns:DevolverIdsClave"/>
+
+<xs:element name="DevolverIdsClaveResponse" type="tns:DevolverIdsClaveResponse"/>
+
+<xs:element name="DevolverIdsGeneral" type="tns:DevolverIdsGeneral"/>
+
+<xs:element name="DevolverIdsGeneralResponse" type="tns:DevolverIdsGeneralResponse"/>
+
+<xs:element name="DevolverListaAdmins" type="tns:DevolverListaAdmins"/>
+
+<xs:element name="DevolverListaAdminsResponse" type="tns:DevolverListaAdminsResponse"/>
+
+<xs:element name="DevolverNombresChoferes" type="tns:DevolverNombresChoferes"/>
+
+<xs:element name="DevolverNombresChoferesResponse" type="tns:DevolverNombresChoferesResponse"/>
+
+<xs:element name="DevolverNombresClave" type="tns:DevolverNombresClave"/>
+
+<xs:element name="DevolverNombresClaveResponse" type="tns:DevolverNombresClaveResponse"/>
+
+<xs:element name="DevolverNombresGeneral" type="tns:DevolverNombresGeneral"/>
+
+<xs:element name="DevolverNombresGeneralResponse" type="tns:DevolverNombresGeneralResponse"/>
+
+<xs:element name="EliminarAdministrador" type="tns:EliminarAdministrador"/>
+
+<xs:element name="EliminarAdministradorResponse" type="tns:EliminarAdministradorResponse"/>
+
+<xs:element name="EliminarEstacionClave" type="tns:EliminarEstacionClave"/>
+
+<xs:element name="EliminarEstacionClaveResponse" type="tns:EliminarEstacionClaveResponse"/>
+
+<xs:element name="EliminarEstacionGeneral" type="tns:EliminarEstacionGeneral"/>
+
+<xs:element name="EliminarEstacionGeneralResponse" type="tns:EliminarEstacionGeneralResponse"/>
 
 <xs:element name="GraficarAdministradores" type="tns:GraficarAdministradores"/>
 
 <xs:element name="GraficarAdministradoresResponse" type="tns:GraficarAdministradoresResponse"/>
 
+<xs:element name="GraficarChoferes" type="tns:GraficarChoferes"/>
+
+<xs:element name="GraficarChoferesResponse" type="tns:GraficarChoferesResponse"/>
+
+<xs:element name="LlenarListaAdministradores" type="tns:LlenarListaAdministradores"/>
+
+<xs:element name="LlenarListaAdministradoresResponse" type="tns:LlenarListaAdministradoresResponse"/>
+
+<xs:element name="LlenarListaEstacionesClave" type="tns:LlenarListaEstacionesClave"/>
+
+<xs:element name="LlenarListaEstacionesClaveResponse" type="tns:LlenarListaEstacionesClaveResponse"/>
+
+<xs:element name="LlenarListaEstacionesGenerales" type="tns:LlenarListaEstacionesGenerales"/>
+
+<xs:element name="LlenarListaEstacionesGeneralesResponse" type="tns:LlenarListaEstacionesGeneralesResponse"/>
+
+<xs:element name="LlenarListaIdDeChoferes" type="tns:LlenarListaIdDeChoferes"/>
+
+<xs:element name="LlenarListaIdDeChoferesResponse" type="tns:LlenarListaIdDeChoferesResponse"/>
+
+<xs:element name="LlenarListaNombreDeChoferes" type="tns:LlenarListaNombreDeChoferes"/>
+
+<xs:element name="LlenarListaNombreDeChoferesResponse" type="tns:LlenarListaNombreDeChoferesResponse"/>
+
+<xs:element name="LlenarListaNombresEstacionesClave" type="tns:LlenarListaNombresEstacionesClave"/>
+
+<xs:element name="LlenarListaNombresEstacionesClaveResponse" type="tns:LlenarListaNombresEstacionesClaveResponse"/>
+
+<xs:element name="LlenarListaNombresEstacionesGenerales" type="tns:LlenarListaNombresEstacionesGenerales"/>
+
+<xs:element name="LlenarListaNombresEstacionesGeneralesResponse" type="tns:LlenarListaNombresEstacionesGeneralesResponse"/>
+
 <xs:element name="LoginAdministrador" type="tns:LoginAdministrador"/>
 
 <xs:element name="LoginAdministradorResponse" type="tns:LoginAdministradorResponse"/>
+
+<xs:element name="LoginChofer" type="tns:LoginChofer"/>
+
+<xs:element name="LoginChoferResponse" type="tns:LoginChoferResponse"/>
 
 <xs:element name="LoginEstacionClave" type="tns:LoginEstacionClave"/>
 
@@ -23,6 +115,267 @@
 <xs:element name="hello" type="tns:hello"/>
 
 <xs:element name="helloResponse" type="tns:helloResponse"/>
+
+<xs:complexType name="LlenarListaNombresEstacionesClave">
+<xs:sequence>
+<xs:element name="arg0" type="tns:nodoEstacionClave" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nodoEstacionClave">
+<xs:sequence>
+<xs:element name="izq" type="tns:nodoEstacionClave" minOccurs="0"/>
+<xs:element name="der" type="tns:nodoEstacionClave" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+<xs:element name="fe" type="xs:int"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LlenarListaNombresEstacionesClaveResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="CrearEstacionClave">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearEstacionClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DevolverNombresChoferes">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DevolverNombresChoferesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LlenarListaNombresEstacionesGenerales">
+<xs:sequence>
+<xs:element name="arg0" type="tns:nodoEstacionGeneral" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nodoEstacionGeneral">
+<xs:sequence>
+<xs:element name="izq" type="tns:nodoEstacionGeneral" minOccurs="0"/>
+<xs:element name="der" type="tns:nodoEstacionGeneral" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+<xs:element name="fe" type="xs:int"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LlenarListaNombresEstacionesGeneralesResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="LoginEstacionClave">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LoginEstacionClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearEstacionGeneral">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearEstacionGeneralResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DevolverNombresGeneral">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DevolverNombresGeneralResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GraficarAdministradores">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GraficarAdministradoresResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LlenarListaAdministradores">
+<xs:sequence>
+<xs:element name="arg0" type="tns:nodoAdministrador" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nodoAdministrador">
+<xs:sequence>
+<xs:element name="izq" type="tns:nodoAdministrador" minOccurs="0"/>
+<xs:element name="der" type="tns:nodoAdministrador" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="fe" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LlenarListaAdministradoresResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LlenarListaNombreDeChoferes">
+<xs:sequence>
+<xs:element name="arg0" type="tns:nodoChofer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nodoChofer">
+<xs:sequence>
+<xs:element name="izq" type="tns:nodoChofer" minOccurs="0"/>
+<xs:element name="der" type="tns:nodoChofer" minOccurs="0"/>
+<xs:element name="apellido" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+<xs:element name="fe" type="xs:int"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LlenarListaNombreDeChoferesResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="LlenarListaEstacionesGenerales">
+<xs:sequence>
+<xs:element name="arg0" type="tns:nodoEstacionGeneral" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LlenarListaEstacionesGeneralesResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="EliminarEstacionClave">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarEstacionClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DevolverNombresClave">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DevolverNombresClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarEstacionGeneral">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarEstacionGeneralResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearAdministrador">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearAdministradorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DevolverIdsChoferes">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DevolverIdsChoferesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearChofer">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="apellido" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearChoferResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="BorrarChofer">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="BorrarChoferResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
 
 <xs:complexType name="LoginEstacionGeneral">
 <xs:sequence>
@@ -50,51 +403,88 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="CrearAdministrador">
+<xs:complexType name="LlenarListaEstacionesClave">
 <xs:sequence>
-<xs:element name="correo" type="xs:string" minOccurs="0"/>
-<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+<xs:element name="arg0" type="tns:nodoEstacionClave" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="CrearAdministradorResponse">
+<xs:complexType name="LlenarListaEstacionesClaveResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="EliminarAdministrador">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarAdministradorResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="LoginEstacionClave">
+<xs:complexType name="GraficarChoferes">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GraficarChoferesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LoginChofer">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
 <xs:element name="contrasena" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="LoginEstacionClaveResponse">
+<xs:complexType name="LoginChoferResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="GraficarAdministradores">
+<xs:complexType name="DevolverListaAdmins">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="GraficarAdministradoresResponse">
+<xs:complexType name="DevolverListaAdminsResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="hello">
+<xs:complexType name="LlenarListaIdDeChoferes">
 <xs:sequence>
-<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="arg0" type="tns:nodoChofer" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="helloResponse">
+<xs:complexType name="LlenarListaIdDeChoferesResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DevolverIdsGeneral">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DevolverIdsGeneralResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DevolverIdsClave">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DevolverIdsClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

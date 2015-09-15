@@ -1,6 +1,7 @@
 
 package webservice;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -26,30 +27,165 @@ public interface WS {
 
     /**
      * 
-     * @param name
-     * @return
-     *     returns java.lang.String
+     * @param arg0
      */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "hello", targetNamespace = "http://webservice/", className = "webservice.Hello")
-    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://webservice/", className = "webservice.HelloResponse")
-    @Action(input = "http://webservice/WS/helloRequest", output = "http://webservice/WS/helloResponse")
-    public String hello(
-        @WebParam(name = "name", targetNamespace = "")
-        String name);
+    @WebMethod(operationName = "LlenarListaNombresEstacionesGenerales")
+    @RequestWrapper(localName = "LlenarListaNombresEstacionesGenerales", targetNamespace = "http://webservice/", className = "webservice.LlenarListaNombresEstacionesGenerales")
+    @ResponseWrapper(localName = "LlenarListaNombresEstacionesGeneralesResponse", targetNamespace = "http://webservice/", className = "webservice.LlenarListaNombresEstacionesGeneralesResponse")
+    @Action(input = "http://webservice/WS/LlenarListaNombresEstacionesGeneralesRequest", output = "http://webservice/WS/LlenarListaNombresEstacionesGeneralesResponse")
+    public void llenarListaNombresEstacionesGenerales(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoEstacionGeneral arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "LlenarListaNombresEstacionesClave")
+    @RequestWrapper(localName = "LlenarListaNombresEstacionesClave", targetNamespace = "http://webservice/", className = "webservice.LlenarListaNombresEstacionesClave")
+    @ResponseWrapper(localName = "LlenarListaNombresEstacionesClaveResponse", targetNamespace = "http://webservice/", className = "webservice.LlenarListaNombresEstacionesClaveResponse")
+    @Action(input = "http://webservice/WS/LlenarListaNombresEstacionesClaveRequest", output = "http://webservice/WS/LlenarListaNombresEstacionesClaveResponse")
+    public void llenarListaNombresEstacionesClave(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoEstacionClave arg0);
 
     /**
      * 
      * @return
      *     returns boolean
      */
-    @WebMethod(operationName = "GraficarAdministradores")
+    @WebMethod(operationName = "GraficarChoferes")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "GraficarAdministradores", targetNamespace = "http://webservice/", className = "webservice.GraficarAdministradores")
-    @ResponseWrapper(localName = "GraficarAdministradoresResponse", targetNamespace = "http://webservice/", className = "webservice.GraficarAdministradoresResponse")
-    @Action(input = "http://webservice/WS/GraficarAdministradoresRequest", output = "http://webservice/WS/GraficarAdministradoresResponse")
-    public boolean graficarAdministradores();
+    @RequestWrapper(localName = "GraficarChoferes", targetNamespace = "http://webservice/", className = "webservice.GraficarChoferes")
+    @ResponseWrapper(localName = "GraficarChoferesResponse", targetNamespace = "http://webservice/", className = "webservice.GraficarChoferesResponse")
+    @Action(input = "http://webservice/WS/GraficarChoferesRequest", output = "http://webservice/WS/GraficarChoferesResponse")
+    public boolean graficarChoferes();
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "LlenarListaAdministradores")
+    @RequestWrapper(localName = "LlenarListaAdministradores", targetNamespace = "http://webservice/", className = "webservice.LlenarListaAdministradores")
+    @ResponseWrapper(localName = "LlenarListaAdministradoresResponse", targetNamespace = "http://webservice/", className = "webservice.LlenarListaAdministradoresResponse")
+    @Action(input = "http://webservice/WS/LlenarListaAdministradoresRequest", output = "http://webservice/WS/LlenarListaAdministradoresResponse")
+    public void llenarListaAdministradores(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoAdministrador arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "LlenarListaEstacionesGenerales")
+    @RequestWrapper(localName = "LlenarListaEstacionesGenerales", targetNamespace = "http://webservice/", className = "webservice.LlenarListaEstacionesGenerales")
+    @ResponseWrapper(localName = "LlenarListaEstacionesGeneralesResponse", targetNamespace = "http://webservice/", className = "webservice.LlenarListaEstacionesGeneralesResponse")
+    @Action(input = "http://webservice/WS/LlenarListaEstacionesGeneralesRequest", output = "http://webservice/WS/LlenarListaEstacionesGeneralesResponse")
+    public void llenarListaEstacionesGenerales(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoEstacionGeneral arg0);
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "EliminarEstacionClave")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "EliminarEstacionClave", targetNamespace = "http://webservice/", className = "webservice.EliminarEstacionClave")
+    @ResponseWrapper(localName = "EliminarEstacionClaveResponse", targetNamespace = "http://webservice/", className = "webservice.EliminarEstacionClaveResponse")
+    @Action(input = "http://webservice/WS/EliminarEstacionClaveRequest", output = "http://webservice/WS/EliminarEstacionClaveResponse")
+    public boolean eliminarEstacionClave(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "DevolverListaAdmins")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "DevolverListaAdmins", targetNamespace = "http://webservice/", className = "webservice.DevolverListaAdmins")
+    @ResponseWrapper(localName = "DevolverListaAdminsResponse", targetNamespace = "http://webservice/", className = "webservice.DevolverListaAdminsResponse")
+    @Action(input = "http://webservice/WS/DevolverListaAdminsRequest", output = "http://webservice/WS/DevolverListaAdminsResponse")
+    public List<Object> devolverListaAdmins();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "DevolverNombresChoferes")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "DevolverNombresChoferes", targetNamespace = "http://webservice/", className = "webservice.DevolverNombresChoferes")
+    @ResponseWrapper(localName = "DevolverNombresChoferesResponse", targetNamespace = "http://webservice/", className = "webservice.DevolverNombresChoferesResponse")
+    @Action(input = "http://webservice/WS/DevolverNombresChoferesRequest", output = "http://webservice/WS/DevolverNombresChoferesResponse")
+    public List<Object> devolverNombresChoferes();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "DevolverNombresClave")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "DevolverNombresClave", targetNamespace = "http://webservice/", className = "webservice.DevolverNombresClave")
+    @ResponseWrapper(localName = "DevolverNombresClaveResponse", targetNamespace = "http://webservice/", className = "webservice.DevolverNombresClaveResponse")
+    @Action(input = "http://webservice/WS/DevolverNombresClaveRequest", output = "http://webservice/WS/DevolverNombresClaveResponse")
+    public List<Object> devolverNombresClave();
+
+    /**
+     * 
+     * @param correo
+     * @param contrasena
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "LoginAdministrador")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "LoginAdministrador", targetNamespace = "http://webservice/", className = "webservice.LoginAdministrador")
+    @ResponseWrapper(localName = "LoginAdministradorResponse", targetNamespace = "http://webservice/", className = "webservice.LoginAdministradorResponse")
+    @Action(input = "http://webservice/WS/LoginAdministradorRequest", output = "http://webservice/WS/LoginAdministradorResponse")
+    public boolean loginAdministrador(
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo,
+        @WebParam(name = "contrasena", targetNamespace = "")
+        String contrasena);
+
+    /**
+     * 
+     * @param contrasena
+     * @param id
+     * @param nombre
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "CrearEstacionGeneral")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "CrearEstacionGeneral", targetNamespace = "http://webservice/", className = "webservice.CrearEstacionGeneral")
+    @ResponseWrapper(localName = "CrearEstacionGeneralResponse", targetNamespace = "http://webservice/", className = "webservice.CrearEstacionGeneralResponse")
+    @Action(input = "http://webservice/WS/CrearEstacionGeneralRequest", output = "http://webservice/WS/CrearEstacionGeneralResponse")
+    public boolean crearEstacionGeneral(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre,
+        @WebParam(name = "contrasena", targetNamespace = "")
+        String contrasena);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "LlenarListaEstacionesClave")
+    @RequestWrapper(localName = "LlenarListaEstacionesClave", targetNamespace = "http://webservice/", className = "webservice.LlenarListaEstacionesClave")
+    @ResponseWrapper(localName = "LlenarListaEstacionesClaveResponse", targetNamespace = "http://webservice/", className = "webservice.LlenarListaEstacionesClaveResponse")
+    @Action(input = "http://webservice/WS/LlenarListaEstacionesClaveRequest", output = "http://webservice/WS/LlenarListaEstacionesClaveResponse")
+    public void llenarListaEstacionesClave(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoEstacionClave arg0);
 
     /**
      * 
@@ -73,6 +209,66 @@ public interface WS {
      * 
      * @param contrasena
      * @param id
+     * @param nombre
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "CrearEstacionClave")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "CrearEstacionClave", targetNamespace = "http://webservice/", className = "webservice.CrearEstacionClave")
+    @ResponseWrapper(localName = "CrearEstacionClaveResponse", targetNamespace = "http://webservice/", className = "webservice.CrearEstacionClaveResponse")
+    @Action(input = "http://webservice/WS/CrearEstacionClaveRequest", output = "http://webservice/WS/CrearEstacionClaveResponse")
+    public boolean crearEstacionClave(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre,
+        @WebParam(name = "contrasena", targetNamespace = "")
+        String contrasena);
+
+    /**
+     * 
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "GraficarAdministradores")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "GraficarAdministradores", targetNamespace = "http://webservice/", className = "webservice.GraficarAdministradores")
+    @ResponseWrapper(localName = "GraficarAdministradoresResponse", targetNamespace = "http://webservice/", className = "webservice.GraficarAdministradoresResponse")
+    @Action(input = "http://webservice/WS/GraficarAdministradoresRequest", output = "http://webservice/WS/GraficarAdministradoresResponse")
+    public boolean graficarAdministradores();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "DevolverNombresGeneral")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "DevolverNombresGeneral", targetNamespace = "http://webservice/", className = "webservice.DevolverNombresGeneral")
+    @ResponseWrapper(localName = "DevolverNombresGeneralResponse", targetNamespace = "http://webservice/", className = "webservice.DevolverNombresGeneralResponse")
+    @Action(input = "http://webservice/WS/DevolverNombresGeneralRequest", output = "http://webservice/WS/DevolverNombresGeneralResponse")
+    public List<Object> devolverNombresGeneral();
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "EliminarEstacionGeneral")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "EliminarEstacionGeneral", targetNamespace = "http://webservice/", className = "webservice.EliminarEstacionGeneral")
+    @ResponseWrapper(localName = "EliminarEstacionGeneralResponse", targetNamespace = "http://webservice/", className = "webservice.EliminarEstacionGeneralResponse")
+    @Action(input = "http://webservice/WS/EliminarEstacionGeneralRequest", output = "http://webservice/WS/EliminarEstacionGeneralResponse")
+    public boolean eliminarEstacionGeneral(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
+
+    /**
+     * 
+     * @param contrasena
+     * @param id
      * @return
      *     returns boolean
      */
@@ -86,6 +282,33 @@ public interface WS {
         String id,
         @WebParam(name = "contrasena", targetNamespace = "")
         String contrasena);
+
+    /**
+     * 
+     * @param correo
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "EliminarAdministrador")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "EliminarAdministrador", targetNamespace = "http://webservice/", className = "webservice.EliminarAdministrador")
+    @ResponseWrapper(localName = "EliminarAdministradorResponse", targetNamespace = "http://webservice/", className = "webservice.EliminarAdministradorResponse")
+    @Action(input = "http://webservice/WS/EliminarAdministradorRequest", output = "http://webservice/WS/EliminarAdministradorResponse")
+    public boolean eliminarAdministrador(
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "DevolverIdsGeneral")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "DevolverIdsGeneral", targetNamespace = "http://webservice/", className = "webservice.DevolverIdsGeneral")
+    @ResponseWrapper(localName = "DevolverIdsGeneralResponse", targetNamespace = "http://webservice/", className = "webservice.DevolverIdsGeneralResponse")
+    @Action(input = "http://webservice/WS/DevolverIdsGeneralRequest", output = "http://webservice/WS/DevolverIdsGeneralResponse")
+    public List<Object> devolverIdsGeneral();
 
     /**
      * 
@@ -107,19 +330,121 @@ public interface WS {
 
     /**
      * 
-     * @param correo
+     * @param arg0
+     */
+    @WebMethod(operationName = "LlenarListaNombreDeChoferes")
+    @RequestWrapper(localName = "LlenarListaNombreDeChoferes", targetNamespace = "http://webservice/", className = "webservice.LlenarListaNombreDeChoferes")
+    @ResponseWrapper(localName = "LlenarListaNombreDeChoferesResponse", targetNamespace = "http://webservice/", className = "webservice.LlenarListaNombreDeChoferesResponse")
+    @Action(input = "http://webservice/WS/LlenarListaNombreDeChoferesRequest", output = "http://webservice/WS/LlenarListaNombreDeChoferesResponse")
+    public void llenarListaNombreDeChoferes(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoChofer arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "DevolverIdsChoferes")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "DevolverIdsChoferes", targetNamespace = "http://webservice/", className = "webservice.DevolverIdsChoferes")
+    @ResponseWrapper(localName = "DevolverIdsChoferesResponse", targetNamespace = "http://webservice/", className = "webservice.DevolverIdsChoferesResponse")
+    @Action(input = "http://webservice/WS/DevolverIdsChoferesRequest", output = "http://webservice/WS/DevolverIdsChoferesResponse")
+    public List<Object> devolverIdsChoferes();
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "LlenarListaIdDeChoferes")
+    @RequestWrapper(localName = "LlenarListaIdDeChoferes", targetNamespace = "http://webservice/", className = "webservice.LlenarListaIdDeChoferes")
+    @ResponseWrapper(localName = "LlenarListaIdDeChoferesResponse", targetNamespace = "http://webservice/", className = "webservice.LlenarListaIdDeChoferesResponse")
+    @Action(input = "http://webservice/WS/LlenarListaIdDeChoferesRequest", output = "http://webservice/WS/LlenarListaIdDeChoferesResponse")
+    public void llenarListaIdDeChoferes(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoChofer arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "DevolverIdsClave")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "DevolverIdsClave", targetNamespace = "http://webservice/", className = "webservice.DevolverIdsClave")
+    @ResponseWrapper(localName = "DevolverIdsClaveResponse", targetNamespace = "http://webservice/", className = "webservice.DevolverIdsClaveResponse")
+    @Action(input = "http://webservice/WS/DevolverIdsClaveRequest", output = "http://webservice/WS/DevolverIdsClaveResponse")
+    public List<Object> devolverIdsClave();
+
+    /**
+     * 
+     * @param apellido
      * @param contrasena
+     * @param id
+     * @param nombre
      * @return
      *     returns boolean
      */
-    @WebMethod(operationName = "LoginAdministrador")
+    @WebMethod(operationName = "CrearChofer")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "LoginAdministrador", targetNamespace = "http://webservice/", className = "webservice.LoginAdministrador")
-    @ResponseWrapper(localName = "LoginAdministradorResponse", targetNamespace = "http://webservice/", className = "webservice.LoginAdministradorResponse")
-    @Action(input = "http://webservice/WS/LoginAdministradorRequest", output = "http://webservice/WS/LoginAdministradorResponse")
-    public boolean loginAdministrador(
-        @WebParam(name = "correo", targetNamespace = "")
-        String correo,
+    @RequestWrapper(localName = "CrearChofer", targetNamespace = "http://webservice/", className = "webservice.CrearChofer")
+    @ResponseWrapper(localName = "CrearChoferResponse", targetNamespace = "http://webservice/", className = "webservice.CrearChoferResponse")
+    @Action(input = "http://webservice/WS/CrearChoferRequest", output = "http://webservice/WS/CrearChoferResponse")
+    public boolean crearChofer(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre,
+        @WebParam(name = "apellido", targetNamespace = "")
+        String apellido,
+        @WebParam(name = "contrasena", targetNamespace = "")
+        String contrasena);
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "BorrarChofer")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "BorrarChofer", targetNamespace = "http://webservice/", className = "webservice.BorrarChofer")
+    @ResponseWrapper(localName = "BorrarChoferResponse", targetNamespace = "http://webservice/", className = "webservice.BorrarChoferResponse")
+    @Action(input = "http://webservice/WS/BorrarChoferRequest", output = "http://webservice/WS/BorrarChoferResponse")
+    public boolean borrarChofer(
+        @WebParam(name = "id", targetNamespace = "")
+        String id);
+
+    /**
+     * 
+     * @param name
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "hello", targetNamespace = "http://webservice/", className = "webservice.Hello")
+    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://webservice/", className = "webservice.HelloResponse")
+    @Action(input = "http://webservice/WS/helloRequest", output = "http://webservice/WS/helloResponse")
+    public String hello(
+        @WebParam(name = "name", targetNamespace = "")
+        String name);
+
+    /**
+     * 
+     * @param contrasena
+     * @param id
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "LoginChofer")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "LoginChofer", targetNamespace = "http://webservice/", className = "webservice.LoginChofer")
+    @ResponseWrapper(localName = "LoginChoferResponse", targetNamespace = "http://webservice/", className = "webservice.LoginChoferResponse")
+    @Action(input = "http://webservice/WS/LoginChoferRequest", output = "http://webservice/WS/LoginChoferResponse")
+    public boolean loginChofer(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
         @WebParam(name = "contrasena", targetNamespace = "")
         String contrasena);
 

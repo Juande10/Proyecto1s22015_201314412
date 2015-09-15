@@ -226,14 +226,10 @@ function mostrar(id) {
             <h2>Chofer</h2>
             <form action="Inicio.jsp" method="post">
                 <p><label for="lblusuario" style="font-size: 20px;">ID: </label><br/>
-                <input type="text" name="nombre" /></p>
+                <input type="text" name="idChofer" /></p>
                 <p><label for="lblcontra" style="font-size: 20px;">Contarseña: </label><br/>
-                <input type="password" name="centro" /></p>    
-                <input type="button"
-                value="Iniciar Sesion Chofer"
-                id="btnInicio" 
-                name="btnInicio" 
-                onclick= "self.location.href = 'PrincipalAdministrador.jsp'" />
+                <input type="password" name="contraChofer" /></p>    
+                <input type="submit" value="Iniciar Sesion General" name="InicioGeneral"/>
             </form>
         </div>                
       </div>

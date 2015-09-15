@@ -80,7 +80,20 @@ window.location='Reportes.jsp';
         <div class="article">
           <h2><span>Proyecto</span> Transmetro</h2>      
           <div class="clr"></div> 
-              <%-- start web service invocation --%><hr/>
+          <form action="index.php" method="post">
+                Seleccione la grafica que desea visualizar: 
+                <select id="tipo" name="tipo" onChange="mostrar(this.value);">
+                    <option value="Crear">Administradores</option>
+                    <option value="Modificar">Choferes</option>
+                    <option value="Eliminar">Eliminar Estacion General</option>
+                 </select>
+                </form>
+                <!--Formulario para crear un usuario administrador esta si se muestra por default al iniciar por eso no lleva el style="display: none;"-->  
+                <div id="Crear">
+                    <h2>Grafica de Administradores</h2>
+                    <form action="Reportes.jsp" method="post">
+                        <input type="submit" value="Actualizar" name="Actualizar"/>
+                        <%-- start web service invocation --%><hr/>
                             <%
                             try {
                                 webservice.WS_Service service = new webservice.WS_Service();
@@ -89,40 +102,51 @@ window.location='Reportes.jsp';
                                 boolean result = port.graficarAdministradores();
                                 if(result = true){
                                     %>
-                                    <form action="Reportes.jsp" method="post" type="submit">
-                                        <img src="GraficaAdmins.jpg">
-                                    </form>
-                                   
+                                        <img src="GraficaAdmins.jpg">                              
                                     <%
                                 }
                             } catch (Exception ex) {
                                 // TODO handle custom exceptions here
+                                String mensaje="<script language='javascript'>alert('Error en el metodo');</script>"; 
+                                out.println(mensaje);
                             }
                             
                             %>
-                        <%-- end web service invocation --%><hr/>          
-                        
-                        
-                        
-                <!--Formulario para crear un usuario administrador esta si se muestra por default al iniciar por eso no lleva el style="display: none;"-->  
-                <div id="Crear">
-                    <h2>Grafica de Administradores</h2>
-                    <form action="Reportes.jsp" method="post">
-                                         
+                        <%-- end web service invocation --%><hr/>        
                     </form>                    
                 </div>
                 
                 <!--Formulario para modificar informacion de un administrador-->  
                 <div id="Modificar" style="display: none;">
-                    <h2>Modificar Usuario Administrador</h2>
+                    <h2>Grafica de Choferes</h2>
                     <form action="Reportes.jsp" method="post" >
-                        
+                            <%-- start web service invocation --%><hr/>
+                            <%
+                            try {
+                                webservice.WS_Service service = new webservice.WS_Service();
+                                webservice.WS port = service.getWSPort();
+                                // TODO process result here
+                                boolean result = port.graficarChoferes();
+                                if(result == true){
+                                    %>
+                                        <img src="GraficaChoferes.jpg">                              
+                                    <%
+                                }else{
+                                    %>
+                                    <h1>No hay choferes</h1>                              
+                                    <%
+                                }
+                            } catch (Exception ex) {
+                                // TODO handle custom exceptions here
+                            }
+                            %>
+                            <%-- end web service invocation --%><hr/>
                     </form>
                 </div>
                 
                 <!--Formulario para eliminar informacion de un administrador-->  
                 <div id="Eliminar" style="display: none;">
-                    <h2>Eliminar Usuario Administrador</h2>
+                    <h2>Grafica de Choferes</h2>
                     <form action="AdminAdministradores.jsp" method="post" >
                         
                     </form>
