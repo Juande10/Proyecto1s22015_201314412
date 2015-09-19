@@ -79,7 +79,7 @@ function mostrar(id) {
                <p> - Agregar</p>
                <p> - Modificar</p>
                <p> - Eliminar</p>
-                <form action="index.php" method="post">
+                <form action="AdminBuses.jsp" method="post">
                 Seleccione la accion que desea realizar: 
                 <select id="tipo" name="tipo" onChange="mostrar(this.value);">
                     <option value="Crear">Crear Bus</option>
@@ -90,16 +90,44 @@ function mostrar(id) {
                 <!--Formulario para crear un usuario administrador esta si se muestra por default al iniciar por eso no lleva el style="display: none;"-->  
                 <div id="Crear">
                     <h2>Crear Bus</h2>
-                    <form action="index.php" method="post">
+                    <form action="AdminBuses.jsp" method="post">
                         <p><label for="lblusuario" style="font-size: 20px;">Ingrese el numero de bus a registrar: </label><br/>
-                        <input type="text" name="id" /></p>
+                        <input type="text" name="idCrearBus" /></p>
+                        <input type="submit" value="Crear Bus" name="CrearBus"/>
+                            <%-- start web service invocation --%><hr/>
+                            <%
+                                if(request.getParameter("idCrearBus") != null){
+                                    try {
+                                        webservice.WS_Service service = new webservice.WS_Service();
+                                        webservice.WS port = service.getWSPort();
+                                         // TODO initialize WS operation arguments here
+                                        java.lang.String numero = request.getParameter("idCrearBus");
+                                        // TODO process result here
+                                        boolean result = port.crearBus(numero);
+                                        if(result == true){
+                                            String mensaje="<script language='javascript'>alert('Bus creado'" +");</script>"; 
+                                            out.println(mensaje);
+                                        }else{
+                                            String mensaje="<script language='javascript'>alert('Bus existente'" +");</script>"; 
+                                            out.println(mensaje);
+                                        }
+                                    } catch (Exception ex) {
+                                        // TODO handle custom exceptions here
+                                        String mensaje="<script language='javascript'>alert('Error al crear un bus'" +");</script>"; 
+                                        out.println(mensaje);
+                                    }
+                                }
+                            
+                            %>
+                            <%-- end web service invocation --%><hr/>
+
                     </form>
                 </div>
                 
                 <!--Formulario para modificar informacion de un administrador-->  
                 <div id="Modificar" style="display: none;">
                     <h2>Modificar Bus</h2>
-                    <form action="index.php" method="post" >
+                    <form action="AdminBuses.jsp" method="post" >
                         <p><label for="lblusuario" style="font-size: 20px;">Asigne un id: </label><br/>
                         <input type="text" name="id" /></p>
                         
@@ -111,9 +139,62 @@ function mostrar(id) {
                 <!--Formulario para eliminar informacion de un administrador-->  
                 <div id="Eliminar" style="display: none;">
                     <h2>Eliminar Bus</h2>
-                    <form action="index.php" method="post" >
-                        <p><label for="lblusuario" style="font-size: 20px;">Escriba el numero del bus a eliminar: </label><br/>
-                        <input type="text" name="ideliminar" /></p>
+                    <form action="AdminBuses.jsp" method="post" >
+                        <p><label for="lblusuario" style="font-size: 20px;">Seleccione el numero del bus a eliminar: </label><br/>
+                        <select name="NumeroBusEliminar"> 
+                            <option value="Seleccione" selected="selected">Seleccione</option>
+                                <%-- start web service invocation --%><hr/>
+                                <%
+                                try {
+                                    webservice.WS_Service service = new webservice.WS_Service();
+                                    webservice.WS port = service.getWSPort();
+                                    // TODO process result here
+                                    java.util.List<java.lang.Object> result = port.devolverNumeroBuses();
+                                    int tamano = result.size();
+                                    for(int i = tamano - 1;i>=0;i--){
+                                        String id = result.get(i).toString();
+                                        %>
+                                        <option value = "<%=id%>"><%=id%></option>
+                                        <%
+                                        }
+                                } catch (Exception ex) {
+                                    // TODO handle custom exceptions here
+                                }
+                                %>
+                                <%-- end web service invocation --%><hr/>
+                        </select>
+                        <input type="submit" value="Eliminar"/>
+                            <%-- start web service invocation --%><hr/>
+                            <%
+                                if(request.getParameter("NumeroBusEliminar") != null){
+                                    if(request.getParameter("NumeroBusEliminar").equals("Seleccione")){
+                                        
+                                    }else{
+                                        try {
+                                            webservice.WS_Service service = new webservice.WS_Service();
+                                            webservice.WS port = service.getWSPort();
+                                             // TODO initialize WS operation arguments here
+                                            java.lang.String numero = request.getParameter("NumeroBusEliminar"); 
+                                            // TODO process result here
+                                            boolean result = port.eliminarBus(numero);
+                                            if(result == true){
+                                                String mensaje="<script language='javascript'>alert('Eliminacion exitosa');</script>"; 
+                                                out.println(mensaje);
+                                            }else{
+                                                String mensaje="<script language='javascript'>alert('Usuario inexistente');</script>"; 
+                                                out.println(mensaje);
+                                            }
+                                        } catch (Exception ex) {
+                                            // TODO handle custom exceptions here
+                                            String mensaje="<script language='javascript'>alert('Error al tratar de eliminar un bus');</script>"; 
+                                            out.println(mensaje);
+                                        }
+                                    }
+                                }
+                            
+                            %>
+                            <%-- end web service invocation --%><hr/>
+
                     </form>
                 </div>
         </div>

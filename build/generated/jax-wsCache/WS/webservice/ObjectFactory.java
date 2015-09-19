@@ -25,28 +25,38 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
 
     private final static QName _DevolverIdsClaveResponse_QNAME = new QName("http://webservice/", "DevolverIdsClaveResponse");
+    private final static QName _ModificarAdministradorResponse_QNAME = new QName("http://webservice/", "ModificarAdministradorResponse");
     private final static QName _GraficarAdministradoresResponse_QNAME = new QName("http://webservice/", "GraficarAdministradoresResponse");
     private final static QName _CrearEstacionGeneral_QNAME = new QName("http://webservice/", "CrearEstacionGeneral");
     private final static QName _CrearAdministradorResponse_QNAME = new QName("http://webservice/", "CrearAdministradorResponse");
     private final static QName _CrearEstacionGeneralResponse_QNAME = new QName("http://webservice/", "CrearEstacionGeneralResponse");
     private final static QName _LlenarListaIdDeChoferesResponse_QNAME = new QName("http://webservice/", "LlenarListaIdDeChoferesResponse");
     private final static QName _GraficarChoferesResponse_QNAME = new QName("http://webservice/", "GraficarChoferesResponse");
+    private final static QName _IOException_QNAME = new QName("http://webservice/", "IOException");
     private final static QName _LlenarListaNombresEstacionesGeneralesResponse_QNAME = new QName("http://webservice/", "LlenarListaNombresEstacionesGeneralesResponse");
     private final static QName _LlenarListaEstacionesGenerales_QNAME = new QName("http://webservice/", "LlenarListaEstacionesGenerales");
     private final static QName _EliminarEstacionGeneral_QNAME = new QName("http://webservice/", "EliminarEstacionGeneral");
+    private final static QName _ModificarEsClaveResponse_QNAME = new QName("http://webservice/", "ModificarEsClaveResponse");
+    private final static QName _GraficarEstacionesClave_QNAME = new QName("http://webservice/", "GraficarEstacionesClave");
     private final static QName _LoginEstacionGeneralResponse_QNAME = new QName("http://webservice/", "LoginEstacionGeneralResponse");
     private final static QName _EliminarAdministradorResponse_QNAME = new QName("http://webservice/", "EliminarAdministradorResponse");
     private final static QName _CrearChofer_QNAME = new QName("http://webservice/", "CrearChofer");
     private final static QName _DevolverIdsGeneralResponse_QNAME = new QName("http://webservice/", "DevolverIdsGeneralResponse");
+    private final static QName _GraficarEstacionesGenerales_QNAME = new QName("http://webservice/", "GraficarEstacionesGenerales");
     private final static QName _LlenarListaEstacionesGeneralesResponse_QNAME = new QName("http://webservice/", "LlenarListaEstacionesGeneralesResponse");
+    private final static QName _LlenarListaNumeroBusesResponse_QNAME = new QName("http://webservice/", "LlenarListaNumeroBusesResponse");
     private final static QName _GraficarChoferes_QNAME = new QName("http://webservice/", "GraficarChoferes");
+    private final static QName _CrearBus_QNAME = new QName("http://webservice/", "CrearBus");
     private final static QName _DevolverListaAdminsResponse_QNAME = new QName("http://webservice/", "DevolverListaAdminsResponse");
     private final static QName _LoginAdministradorResponse_QNAME = new QName("http://webservice/", "LoginAdministradorResponse");
+    private final static QName _EliminarBusResponse_QNAME = new QName("http://webservice/", "EliminarBusResponse");
     private final static QName _DevolverIdsChoferesResponse_QNAME = new QName("http://webservice/", "DevolverIdsChoferesResponse");
     private final static QName _DevolverNombresGeneralResponse_QNAME = new QName("http://webservice/", "DevolverNombresGeneralResponse");
+    private final static QName _DevolverNumeroBusesResponse_QNAME = new QName("http://webservice/", "DevolverNumeroBusesResponse");
     private final static QName _LoginAdministrador_QNAME = new QName("http://webservice/", "LoginAdministrador");
     private final static QName _LlenarListaNombresEstacionesClaveResponse_QNAME = new QName("http://webservice/", "LlenarListaNombresEstacionesClaveResponse");
     private final static QName _LoginEstacionClaveResponse_QNAME = new QName("http://webservice/", "LoginEstacionClaveResponse");
+    private final static QName _ModificarEsClave_QNAME = new QName("http://webservice/", "ModificarEsClave");
     private final static QName _DevolverListaAdmins_QNAME = new QName("http://webservice/", "DevolverListaAdmins");
     private final static QName _DevolverNombresChoferes_QNAME = new QName("http://webservice/", "DevolverNombresChoferes");
     private final static QName _HelloResponse_QNAME = new QName("http://webservice/", "helloResponse");
@@ -57,26 +67,40 @@ public class ObjectFactory {
     private final static QName _GraficarAdministradores_QNAME = new QName("http://webservice/", "GraficarAdministradores");
     private final static QName _DevolverNombresGeneral_QNAME = new QName("http://webservice/", "DevolverNombresGeneral");
     private final static QName _EliminarEstacionGeneralResponse_QNAME = new QName("http://webservice/", "EliminarEstacionGeneralResponse");
+    private final static QName _EliminarBus_QNAME = new QName("http://webservice/", "EliminarBus");
     private final static QName _LoginEstacionClave_QNAME = new QName("http://webservice/", "LoginEstacionClave");
     private final static QName _LlenarListaNombresEstacionesGenerales_QNAME = new QName("http://webservice/", "LlenarListaNombresEstacionesGenerales");
+    private final static QName _LeerArchivo_QNAME = new QName("http://webservice/", "LeerArchivo");
     private final static QName _DevolverNombresClaveResponse_QNAME = new QName("http://webservice/", "DevolverNombresClaveResponse");
     private final static QName _LlenarListaAdministradoresResponse_QNAME = new QName("http://webservice/", "LlenarListaAdministradoresResponse");
     private final static QName _LlenarListaNombreDeChoferes_QNAME = new QName("http://webservice/", "LlenarListaNombreDeChoferes");
     private final static QName _BorrarChoferResponse_QNAME = new QName("http://webservice/", "BorrarChoferResponse");
+    private final static QName _ModificarChoferResponse_QNAME = new QName("http://webservice/", "ModificarChoferResponse");
     private final static QName _CrearChoferResponse_QNAME = new QName("http://webservice/", "CrearChoferResponse");
     private final static QName _CrearAdministrador_QNAME = new QName("http://webservice/", "CrearAdministrador");
     private final static QName _DevolverNombresClave_QNAME = new QName("http://webservice/", "DevolverNombresClave");
+    private final static QName _ModificarAdministrador_QNAME = new QName("http://webservice/", "ModificarAdministrador");
+    private final static QName _GraficarEstacionesClaveResponse_QNAME = new QName("http://webservice/", "GraficarEstacionesClaveResponse");
+    private final static QName _DevolverNumeroBuses_QNAME = new QName("http://webservice/", "DevolverNumeroBuses");
     private final static QName _EliminarEstacionClave_QNAME = new QName("http://webservice/", "EliminarEstacionClave");
+    private final static QName _ModificarChofer_QNAME = new QName("http://webservice/", "ModificarChofer");
+    private final static QName _LeerArchivoResponse_QNAME = new QName("http://webservice/", "LeerArchivoResponse");
     private final static QName _EliminarEstacionClaveResponse_QNAME = new QName("http://webservice/", "EliminarEstacionClaveResponse");
     private final static QName _BorrarChofer_QNAME = new QName("http://webservice/", "BorrarChofer");
     private final static QName _DevolverIdsChoferes_QNAME = new QName("http://webservice/", "DevolverIdsChoferes");
+    private final static QName _LlenarListaNumeroBuses_QNAME = new QName("http://webservice/", "LlenarListaNumeroBuses");
+    private final static QName _ModificarEsGeneralResponse_QNAME = new QName("http://webservice/", "ModificarEsGeneralResponse");
     private final static QName _LlenarListaEstacionesClaveResponse_QNAME = new QName("http://webservice/", "LlenarListaEstacionesClaveResponse");
     private final static QName _LoginChofer_QNAME = new QName("http://webservice/", "LoginChofer");
     private final static QName _EliminarAdministrador_QNAME = new QName("http://webservice/", "EliminarAdministrador");
+    private final static QName _GraficarEstacionesGeneralesResponse_QNAME = new QName("http://webservice/", "GraficarEstacionesGeneralesResponse");
+    private final static QName _CrearBusResponse_QNAME = new QName("http://webservice/", "CrearBusResponse");
     private final static QName _LlenarListaEstacionesClave_QNAME = new QName("http://webservice/", "LlenarListaEstacionesClave");
+    private final static QName _ModificarEsGeneral_QNAME = new QName("http://webservice/", "ModificarEsGeneral");
     private final static QName _CrearEstacionClaveResponse_QNAME = new QName("http://webservice/", "CrearEstacionClaveResponse");
     private final static QName _LoginEstacionGeneral_QNAME = new QName("http://webservice/", "LoginEstacionGeneral");
     private final static QName _DevolverNombresChoferesResponse_QNAME = new QName("http://webservice/", "DevolverNombresChoferesResponse");
+    private final static QName _FileNotFoundException_QNAME = new QName("http://webservice/", "FileNotFoundException");
     private final static QName _LlenarListaNombreDeChoferesResponse_QNAME = new QName("http://webservice/", "LlenarListaNombreDeChoferesResponse");
     private final static QName _LoginChoferResponse_QNAME = new QName("http://webservice/", "LoginChoferResponse");
     private final static QName _DevolverIdsClave_QNAME = new QName("http://webservice/", "DevolverIdsClave");
@@ -88,6 +112,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link CrearBusResponse }
+     * 
+     */
+    public CrearBusResponse createCrearBusResponse() {
+        return new CrearBusResponse();
     }
 
     /**
@@ -104,6 +136,14 @@ public class ObjectFactory {
      */
     public EliminarAdministrador createEliminarAdministrador() {
         return new EliminarAdministrador();
+    }
+
+    /**
+     * Create an instance of {@link GraficarEstacionesGeneralesResponse }
+     * 
+     */
+    public GraficarEstacionesGeneralesResponse createGraficarEstacionesGeneralesResponse() {
+        return new GraficarEstacionesGeneralesResponse();
     }
 
     /**
@@ -131,11 +171,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ModificarEsGeneral }
+     * 
+     */
+    public ModificarEsGeneral createModificarEsGeneral() {
+        return new ModificarEsGeneral();
+    }
+
+    /**
      * Create an instance of {@link DevolverNombresChoferesResponse }
      * 
      */
     public DevolverNombresChoferesResponse createDevolverNombresChoferesResponse() {
         return new DevolverNombresChoferesResponse();
+    }
+
+    /**
+     * Create an instance of {@link FileNotFoundException }
+     * 
+     */
+    public FileNotFoundException createFileNotFoundException() {
+        return new FileNotFoundException();
     }
 
     /**
@@ -179,6 +235,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraficarEstacionesClaveResponse }
+     * 
+     */
+    public GraficarEstacionesClaveResponse createGraficarEstacionesClaveResponse() {
+        return new GraficarEstacionesClaveResponse();
+    }
+
+    /**
      * Create an instance of {@link CrearAdministrador }
      * 
      */
@@ -195,11 +259,43 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ModificarAdministrador }
+     * 
+     */
+    public ModificarAdministrador createModificarAdministrador() {
+        return new ModificarAdministrador();
+    }
+
+    /**
+     * Create an instance of {@link LeerArchivoResponse }
+     * 
+     */
+    public LeerArchivoResponse createLeerArchivoResponse() {
+        return new LeerArchivoResponse();
+    }
+
+    /**
+     * Create an instance of {@link DevolverNumeroBuses }
+     * 
+     */
+    public DevolverNumeroBuses createDevolverNumeroBuses() {
+        return new DevolverNumeroBuses();
+    }
+
+    /**
      * Create an instance of {@link EliminarEstacionClave }
      * 
      */
     public EliminarEstacionClave createEliminarEstacionClave() {
         return new EliminarEstacionClave();
+    }
+
+    /**
+     * Create an instance of {@link ModificarChofer }
+     * 
+     */
+    public ModificarChofer createModificarChofer() {
+        return new ModificarChofer();
     }
 
     /**
@@ -227,6 +323,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link LlenarListaNumeroBuses }
+     * 
+     */
+    public LlenarListaNumeroBuses createLlenarListaNumeroBuses() {
+        return new LlenarListaNumeroBuses();
+    }
+
+    /**
+     * Create an instance of {@link ModificarEsGeneralResponse }
+     * 
+     */
+    public ModificarEsGeneralResponse createModificarEsGeneralResponse() {
+        return new ModificarEsGeneralResponse();
+    }
+
+    /**
      * Create an instance of {@link LlenarListaEstacionesClaveResponse }
      * 
      */
@@ -240,6 +352,14 @@ public class ObjectFactory {
      */
     public DevolverNombresClaveResponse createDevolverNombresClaveResponse() {
         return new DevolverNombresClaveResponse();
+    }
+
+    /**
+     * Create an instance of {@link LeerArchivo }
+     * 
+     */
+    public LeerArchivo createLeerArchivo() {
+        return new LeerArchivo();
     }
 
     /**
@@ -264,6 +384,14 @@ public class ObjectFactory {
      */
     public BorrarChoferResponse createBorrarChoferResponse() {
         return new BorrarChoferResponse();
+    }
+
+    /**
+     * Create an instance of {@link ModificarChoferResponse }
+     * 
+     */
+    public ModificarChoferResponse createModificarChoferResponse() {
+        return new ModificarChoferResponse();
     }
 
     /**
@@ -363,11 +491,35 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link EliminarBus }
+     * 
+     */
+    public EliminarBus createEliminarBus() {
+        return new EliminarBus();
+    }
+
+    /**
+     * Create an instance of {@link EliminarBusResponse }
+     * 
+     */
+    public EliminarBusResponse createEliminarBusResponse() {
+        return new EliminarBusResponse();
+    }
+
+    /**
      * Create an instance of {@link GraficarChoferes }
      * 
      */
     public GraficarChoferes createGraficarChoferes() {
         return new GraficarChoferes();
+    }
+
+    /**
+     * Create an instance of {@link CrearBus }
+     * 
+     */
+    public CrearBus createCrearBus() {
+        return new CrearBus();
     }
 
     /**
@@ -419,6 +571,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DevolverNumeroBusesResponse }
+     * 
+     */
+    public DevolverNumeroBusesResponse createDevolverNumeroBusesResponse() {
+        return new DevolverNumeroBusesResponse();
+    }
+
+    /**
      * Create an instance of {@link DevolverListaAdmins }
      * 
      */
@@ -432,6 +592,22 @@ public class ObjectFactory {
      */
     public LoginEstacionClaveResponse createLoginEstacionClaveResponse() {
         return new LoginEstacionClaveResponse();
+    }
+
+    /**
+     * Create an instance of {@link ModificarEsClave }
+     * 
+     */
+    public ModificarEsClave createModificarEsClave() {
+        return new ModificarEsClave();
+    }
+
+    /**
+     * Create an instance of {@link ModificarEsClaveResponse }
+     * 
+     */
+    public ModificarEsClaveResponse createModificarEsClaveResponse() {
+        return new ModificarEsClaveResponse();
     }
 
     /**
@@ -467,6 +643,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraficarEstacionesClave }
+     * 
+     */
+    public GraficarEstacionesClave createGraficarEstacionesClave() {
+        return new GraficarEstacionesClave();
+    }
+
+    /**
      * Create an instance of {@link LoginEstacionGeneralResponse }
      * 
      */
@@ -475,11 +659,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraficarEstacionesGenerales }
+     * 
+     */
+    public GraficarEstacionesGenerales createGraficarEstacionesGenerales() {
+        return new GraficarEstacionesGenerales();
+    }
+
+    /**
      * Create an instance of {@link LlenarListaEstacionesGeneralesResponse }
      * 
      */
     public LlenarListaEstacionesGeneralesResponse createLlenarListaEstacionesGeneralesResponse() {
         return new LlenarListaEstacionesGeneralesResponse();
+    }
+
+    /**
+     * Create an instance of {@link LlenarListaNumeroBusesResponse }
+     * 
+     */
+    public LlenarListaNumeroBusesResponse createLlenarListaNumeroBusesResponse() {
+        return new LlenarListaNumeroBusesResponse();
     }
 
     /**
@@ -507,6 +707,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link IOException }
+     * 
+     */
+    public IOException createIOException() {
+        return new IOException();
+    }
+
+    /**
      * Create an instance of {@link LlenarListaNombresEstacionesGeneralesResponse }
      * 
      */
@@ -520,6 +728,14 @@ public class ObjectFactory {
      */
     public LlenarListaEstacionesGenerales createLlenarListaEstacionesGenerales() {
         return new LlenarListaEstacionesGenerales();
+    }
+
+    /**
+     * Create an instance of {@link ModificarAdministradorResponse }
+     * 
+     */
+    public ModificarAdministradorResponse createModificarAdministradorResponse() {
+        return new ModificarAdministradorResponse();
     }
 
     /**
@@ -579,6 +795,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link NodoBus }
+     * 
+     */
+    public NodoBus createNodoBus() {
+        return new NodoBus();
+    }
+
+    /**
      * Create an instance of {@link NodoEstacionClave }
      * 
      */
@@ -593,6 +817,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://webservice/", name = "DevolverIdsClaveResponse")
     public JAXBElement<DevolverIdsClaveResponse> createDevolverIdsClaveResponse(DevolverIdsClaveResponse value) {
         return new JAXBElement<DevolverIdsClaveResponse>(_DevolverIdsClaveResponse_QNAME, DevolverIdsClaveResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarAdministradorResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "ModificarAdministradorResponse")
+    public JAXBElement<ModificarAdministradorResponse> createModificarAdministradorResponse(ModificarAdministradorResponse value) {
+        return new JAXBElement<ModificarAdministradorResponse>(_ModificarAdministradorResponse_QNAME, ModificarAdministradorResponse.class, null, value);
     }
 
     /**
@@ -650,6 +883,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link IOException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "IOException")
+    public JAXBElement<IOException> createIOException(IOException value) {
+        return new JAXBElement<IOException>(_IOException_QNAME, IOException.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link LlenarListaNombresEstacionesGeneralesResponse }{@code >}}
      * 
      */
@@ -674,6 +916,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://webservice/", name = "EliminarEstacionGeneral")
     public JAXBElement<EliminarEstacionGeneral> createEliminarEstacionGeneral(EliminarEstacionGeneral value) {
         return new JAXBElement<EliminarEstacionGeneral>(_EliminarEstacionGeneral_QNAME, EliminarEstacionGeneral.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarEsClaveResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "ModificarEsClaveResponse")
+    public JAXBElement<ModificarEsClaveResponse> createModificarEsClaveResponse(ModificarEsClaveResponse value) {
+        return new JAXBElement<ModificarEsClaveResponse>(_ModificarEsClaveResponse_QNAME, ModificarEsClaveResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraficarEstacionesClave }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "GraficarEstacionesClave")
+    public JAXBElement<GraficarEstacionesClave> createGraficarEstacionesClave(GraficarEstacionesClave value) {
+        return new JAXBElement<GraficarEstacionesClave>(_GraficarEstacionesClave_QNAME, GraficarEstacionesClave.class, null, value);
     }
 
     /**
@@ -713,6 +973,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraficarEstacionesGenerales }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "GraficarEstacionesGenerales")
+    public JAXBElement<GraficarEstacionesGenerales> createGraficarEstacionesGenerales(GraficarEstacionesGenerales value) {
+        return new JAXBElement<GraficarEstacionesGenerales>(_GraficarEstacionesGenerales_QNAME, GraficarEstacionesGenerales.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link LlenarListaEstacionesGeneralesResponse }{@code >}}
      * 
      */
@@ -722,12 +991,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LlenarListaNumeroBusesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "LlenarListaNumeroBusesResponse")
+    public JAXBElement<LlenarListaNumeroBusesResponse> createLlenarListaNumeroBusesResponse(LlenarListaNumeroBusesResponse value) {
+        return new JAXBElement<LlenarListaNumeroBusesResponse>(_LlenarListaNumeroBusesResponse_QNAME, LlenarListaNumeroBusesResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GraficarChoferes }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webservice/", name = "GraficarChoferes")
     public JAXBElement<GraficarChoferes> createGraficarChoferes(GraficarChoferes value) {
         return new JAXBElement<GraficarChoferes>(_GraficarChoferes_QNAME, GraficarChoferes.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CrearBus }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "CrearBus")
+    public JAXBElement<CrearBus> createCrearBus(CrearBus value) {
+        return new JAXBElement<CrearBus>(_CrearBus_QNAME, CrearBus.class, null, value);
     }
 
     /**
@@ -749,6 +1036,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarBusResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "EliminarBusResponse")
+    public JAXBElement<EliminarBusResponse> createEliminarBusResponse(EliminarBusResponse value) {
+        return new JAXBElement<EliminarBusResponse>(_EliminarBusResponse_QNAME, EliminarBusResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link DevolverIdsChoferesResponse }{@code >}}
      * 
      */
@@ -764,6 +1060,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://webservice/", name = "DevolverNombresGeneralResponse")
     public JAXBElement<DevolverNombresGeneralResponse> createDevolverNombresGeneralResponse(DevolverNombresGeneralResponse value) {
         return new JAXBElement<DevolverNombresGeneralResponse>(_DevolverNombresGeneralResponse_QNAME, DevolverNombresGeneralResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DevolverNumeroBusesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "DevolverNumeroBusesResponse")
+    public JAXBElement<DevolverNumeroBusesResponse> createDevolverNumeroBusesResponse(DevolverNumeroBusesResponse value) {
+        return new JAXBElement<DevolverNumeroBusesResponse>(_DevolverNumeroBusesResponse_QNAME, DevolverNumeroBusesResponse.class, null, value);
     }
 
     /**
@@ -791,6 +1096,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://webservice/", name = "LoginEstacionClaveResponse")
     public JAXBElement<LoginEstacionClaveResponse> createLoginEstacionClaveResponse(LoginEstacionClaveResponse value) {
         return new JAXBElement<LoginEstacionClaveResponse>(_LoginEstacionClaveResponse_QNAME, LoginEstacionClaveResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarEsClave }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "ModificarEsClave")
+    public JAXBElement<ModificarEsClave> createModificarEsClave(ModificarEsClave value) {
+        return new JAXBElement<ModificarEsClave>(_ModificarEsClave_QNAME, ModificarEsClave.class, null, value);
     }
 
     /**
@@ -884,6 +1198,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link EliminarBus }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "EliminarBus")
+    public JAXBElement<EliminarBus> createEliminarBus(EliminarBus value) {
+        return new JAXBElement<EliminarBus>(_EliminarBus_QNAME, EliminarBus.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link LoginEstacionClave }{@code >}}
      * 
      */
@@ -899,6 +1222,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://webservice/", name = "LlenarListaNombresEstacionesGenerales")
     public JAXBElement<LlenarListaNombresEstacionesGenerales> createLlenarListaNombresEstacionesGenerales(LlenarListaNombresEstacionesGenerales value) {
         return new JAXBElement<LlenarListaNombresEstacionesGenerales>(_LlenarListaNombresEstacionesGenerales_QNAME, LlenarListaNombresEstacionesGenerales.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LeerArchivo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "LeerArchivo")
+    public JAXBElement<LeerArchivo> createLeerArchivo(LeerArchivo value) {
+        return new JAXBElement<LeerArchivo>(_LeerArchivo_QNAME, LeerArchivo.class, null, value);
     }
 
     /**
@@ -938,6 +1270,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarChoferResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "ModificarChoferResponse")
+    public JAXBElement<ModificarChoferResponse> createModificarChoferResponse(ModificarChoferResponse value) {
+        return new JAXBElement<ModificarChoferResponse>(_ModificarChoferResponse_QNAME, ModificarChoferResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CrearChoferResponse }{@code >}}
      * 
      */
@@ -965,12 +1306,57 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarAdministrador }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "ModificarAdministrador")
+    public JAXBElement<ModificarAdministrador> createModificarAdministrador(ModificarAdministrador value) {
+        return new JAXBElement<ModificarAdministrador>(_ModificarAdministrador_QNAME, ModificarAdministrador.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraficarEstacionesClaveResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "GraficarEstacionesClaveResponse")
+    public JAXBElement<GraficarEstacionesClaveResponse> createGraficarEstacionesClaveResponse(GraficarEstacionesClaveResponse value) {
+        return new JAXBElement<GraficarEstacionesClaveResponse>(_GraficarEstacionesClaveResponse_QNAME, GraficarEstacionesClaveResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DevolverNumeroBuses }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "DevolverNumeroBuses")
+    public JAXBElement<DevolverNumeroBuses> createDevolverNumeroBuses(DevolverNumeroBuses value) {
+        return new JAXBElement<DevolverNumeroBuses>(_DevolverNumeroBuses_QNAME, DevolverNumeroBuses.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EliminarEstacionClave }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webservice/", name = "EliminarEstacionClave")
     public JAXBElement<EliminarEstacionClave> createEliminarEstacionClave(EliminarEstacionClave value) {
         return new JAXBElement<EliminarEstacionClave>(_EliminarEstacionClave_QNAME, EliminarEstacionClave.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarChofer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "ModificarChofer")
+    public JAXBElement<ModificarChofer> createModificarChofer(ModificarChofer value) {
+        return new JAXBElement<ModificarChofer>(_ModificarChofer_QNAME, ModificarChofer.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LeerArchivoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "LeerArchivoResponse")
+    public JAXBElement<LeerArchivoResponse> createLeerArchivoResponse(LeerArchivoResponse value) {
+        return new JAXBElement<LeerArchivoResponse>(_LeerArchivoResponse_QNAME, LeerArchivoResponse.class, null, value);
     }
 
     /**
@@ -1001,6 +1387,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LlenarListaNumeroBuses }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "LlenarListaNumeroBuses")
+    public JAXBElement<LlenarListaNumeroBuses> createLlenarListaNumeroBuses(LlenarListaNumeroBuses value) {
+        return new JAXBElement<LlenarListaNumeroBuses>(_LlenarListaNumeroBuses_QNAME, LlenarListaNumeroBuses.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarEsGeneralResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "ModificarEsGeneralResponse")
+    public JAXBElement<ModificarEsGeneralResponse> createModificarEsGeneralResponse(ModificarEsGeneralResponse value) {
+        return new JAXBElement<ModificarEsGeneralResponse>(_ModificarEsGeneralResponse_QNAME, ModificarEsGeneralResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link LlenarListaEstacionesClaveResponse }{@code >}}
      * 
      */
@@ -1028,12 +1432,39 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraficarEstacionesGeneralesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "GraficarEstacionesGeneralesResponse")
+    public JAXBElement<GraficarEstacionesGeneralesResponse> createGraficarEstacionesGeneralesResponse(GraficarEstacionesGeneralesResponse value) {
+        return new JAXBElement<GraficarEstacionesGeneralesResponse>(_GraficarEstacionesGeneralesResponse_QNAME, GraficarEstacionesGeneralesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CrearBusResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "CrearBusResponse")
+    public JAXBElement<CrearBusResponse> createCrearBusResponse(CrearBusResponse value) {
+        return new JAXBElement<CrearBusResponse>(_CrearBusResponse_QNAME, CrearBusResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link LlenarListaEstacionesClave }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://webservice/", name = "LlenarListaEstacionesClave")
     public JAXBElement<LlenarListaEstacionesClave> createLlenarListaEstacionesClave(LlenarListaEstacionesClave value) {
         return new JAXBElement<LlenarListaEstacionesClave>(_LlenarListaEstacionesClave_QNAME, LlenarListaEstacionesClave.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ModificarEsGeneral }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "ModificarEsGeneral")
+    public JAXBElement<ModificarEsGeneral> createModificarEsGeneral(ModificarEsGeneral value) {
+        return new JAXBElement<ModificarEsGeneral>(_ModificarEsGeneral_QNAME, ModificarEsGeneral.class, null, value);
     }
 
     /**
@@ -1061,6 +1492,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://webservice/", name = "DevolverNombresChoferesResponse")
     public JAXBElement<DevolverNombresChoferesResponse> createDevolverNombresChoferesResponse(DevolverNombresChoferesResponse value) {
         return new JAXBElement<DevolverNombresChoferesResponse>(_DevolverNombresChoferesResponse_QNAME, DevolverNombresChoferesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link FileNotFoundException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice/", name = "FileNotFoundException")
+    public JAXBElement<FileNotFoundException> createFileNotFoundException(FileNotFoundException value) {
+        return new JAXBElement<FileNotFoundException>(_FileNotFoundException_QNAME, FileNotFoundException.class, null, value);
     }
 
     /**

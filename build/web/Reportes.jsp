@@ -4,6 +4,7 @@
     Author     : Juande
 --%>
 
+<%@page import="java.io.File"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -17,22 +18,32 @@
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
 function mostrar(id) {
-    if (id === "Crear") {
-        $("#Crear").show();
-        $("#Modificar").hide();
-        $("#Eliminar").hide();
+    if (id === "Administradores") {
+        $("#Administradores").show();
+        $("#Choferes").hide();
+        $("#EsClave").hide();
+        $("#EsGeneral").hide();
     }
 
-    if (id === "Modificar") {
-        $("#Crear").hide();
-        $("#Modificar").show();
-        $("#Eliminar").hide();
+    if (id === "Choferes") {
+        $("#Administradores").hide();
+        $("#Choferes").show();
+        $("#EsClave").hide();
+        $("#EsGeneral").hide();
     }
 
-    if (id === "Eliminar") {
-        $("#Crear").hide();
-        $("#Modificar").hide();
-        $("#Eliminar").show();
+    if (id === "EsClave") {
+        $("#Administradores").hide();
+        $("#Choferes").hide();
+        $("#EsClave").show();
+        $("#EsGeneral").hide();
+    }
+    
+    if (id === "EsGeneral") {
+        $("#Administradores").hide();
+        $("#Choferes").hide();
+        $("#EsClave").hide();
+        $("#EsGeneral").show();
     }
 }
 
@@ -80,29 +91,38 @@ window.location='Reportes.jsp';
         <div class="article">
           <h2><span>Proyecto</span> Transmetro</h2>      
           <div class="clr"></div> 
-          <form action="index.php" method="post">
+          
+          <form action="Reportes.jsp" method="post">
                 Seleccione la grafica que desea visualizar: 
                 <select id="tipo" name="tipo" onChange="mostrar(this.value);">
-                    <option value="Crear">Administradores</option>
-                    <option value="Modificar">Choferes</option>
-                    <option value="Eliminar">Eliminar Estacion General</option>
+                    <option value="Administradores">Administradores</option>
+                    <option value="Choferes">Choferes</option>
+                    <option value="EsClave">Estaciones Clave</option>
+                    <option value="EsGeneral">Estaciones Generales</option>
                  </select>
                 </form>
-                <!--Formulario para crear un usuario administrador esta si se muestra por default al iniciar por eso no lleva el style="display: none;"-->  
-                <div id="Crear">
+                <!--Form para ver grafica de administradores esta si se muestra por default al iniciar por eso no lleva el style="display: none;"-->  
+                <div id="Administradores">
                     <h2>Grafica de Administradores</h2>
-                    <form action="Reportes.jsp" method="post">
-                        <input type="submit" value="Actualizar" name="Actualizar"/>
+                    <form name="FormAdmin" action="Reportes.jsp" method="post">
+                        <input type="submit" value="Actualizar" name="Actualizar" onsubmit=""/>
                         <%-- start web service invocation --%><hr/>
                             <%
                             try {
                                 webservice.WS_Service service = new webservice.WS_Service();
                                 webservice.WS port = service.getWSPort();
                                 // TODO process result here
+                                
                                 boolean result = port.graficarAdministradores();
-                                if(result = true){
+                                if(result = true){                                       
                                     %>
-                                        <img src="GraficaAdmins.jpg">                              
+                                    <img src="GraficaAdmins.jpg">                                
+                                    <%
+                                        
+                                }else{
+                                    %>
+                                    <h1>No hay administradores</h1>
+                                                                      
                                     <%
                                 }
                             } catch (Exception ex) {
@@ -116,8 +136,8 @@ window.location='Reportes.jsp';
                     </form>                    
                 </div>
                 
-                <!--Formulario para modificar informacion de un administrador-->  
-                <div id="Modificar" style="display: none;">
+                <!--Form para mostrar grafica de arbol AVL de choferes-->  
+                <div id="Choferes" style="display: none;">
                     <h2>Grafica de Choferes</h2>
                     <form action="Reportes.jsp" method="post" >
                             <%-- start web service invocation --%><hr/>
@@ -144,11 +164,61 @@ window.location='Reportes.jsp';
                     </form>
                 </div>
                 
-                <!--Formulario para eliminar informacion de un administrador-->  
-                <div id="Eliminar" style="display: none;">
-                    <h2>Grafica de Choferes</h2>
-                    <form action="AdminAdministradores.jsp" method="post" >
-                        
+                <!--Formulario para mostrar grafica AVL de estaciones clave-->  
+                <div id="EsClave" style="display: none;">
+                    <h2>Grafica de Estaciones Clave</h2>
+                    <form action="Reportes.jsp" method="post" >
+                            <%-- start web service invocation --%><hr/>
+                            <%
+                            try {
+                                webservice.WS_Service service = new webservice.WS_Service();
+                                webservice.WS port = service.getWSPort();
+                                // TODO process result here
+                                boolean result = port.graficarEstacionesClave();
+                                if(result == true){
+                                    %>
+                                        <img src="GraficaEstacionesClave.jpg">                              
+                                    <%
+                                }else{
+                                    %>
+                                    <h1>No hay Estaciones Clave</h1>                              
+                                    <%
+                                }
+                            } catch (Exception ex) {
+                                // TODO handle custom exceptions here
+                            }
+                            %>
+                            <%-- end web service invocation --%><hr/>
+
+                    </form>
+                </div>
+                
+                <!--Formulario para mostrar grafica AVL de estaciones generales-->  
+                <div id="EsGeneral" style="display: none;">
+                    <h2>Grafica de Estaciones Generales</h2>
+                    <form action="Reportes.jsp" method="post" >
+                            <%-- start web service invocation --%><hr/>
+                            <%
+                            try {
+                                webservice.WS_Service service = new webservice.WS_Service();
+                                webservice.WS port = service.getWSPort();
+                                // TODO process result here
+                                boolean result = port.graficarEstacionesGenerales();
+                                if(result == true){
+                                    %>
+                                        <img src="GraficaEstacionesGenerales.jpg">                              
+                                    <%
+                                }else{
+                                    %>
+                                    <h1>No hay Estaciones Generales</h1>                              
+                                    <%
+                                }
+                            } catch (Exception ex) {
+                                // TODO handle custom exceptions here
+                            }
+                            %>
+                            <%-- end web service invocation --%><hr/>
+
                     </form>
                 </div>
         </div>

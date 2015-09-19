@@ -139,12 +139,86 @@ function mostrar(id) {
                 <!--Formulario para modificar informacion de un administrador-->  
                 <div id="Modificar" style="display: none;">
                     <h2>Modificar Chofer</h2>
-                    <form action="index.php" method="post" >
+                    <form action="AdminChofer.jsp" method="post" >
+                        <p><label for="lblusuario" style="font-size: 20px;">Seleccione el chofer a modificar: </label><br/>
+                        <select name="ChoferModificar">
+                            <option value="Seleccione" selected="selected">Seleccione</option>
+                                <%-- start web service invocation --%><hr/>
+                                <%
+                                try {
+                                    webservice.WS_Service service = new webservice.WS_Service();
+                                    webservice.WS port = service.getWSPort();
+                                    // TODO process result here
+                                    java.util.List<java.lang.Object> result = port.devolverIdsChoferes();
+                                    java.util.List<java.lang.Object> result2 = port.devolverNombresChoferes();
+                                    int tamano = result.size();
+                                    for(int i = tamano - 1;i>=0;i--){
+                                        String id = result.get(i).toString();
+                                        String nombre = result2.get(i).toString();
+                                        %>
+                                        <option value = "<%=id%>"><%=nombre%></option>
+                                        <%
+                                        }
+                                } catch (Exception ex) {
+                                    // TODO handle custom exceptions here
+                                }
+                                %>
+                                <%-- end web service invocation --%><hr/>
+                                </select>
+                        
                         <p><label for="lblusuario" style="font-size: 20px;">Asigne un id: </label><br/>
-                        <input type="text" name="id" /></p>
+                        <input type="text" name="idmodificar" /></p>
                         
                         <p><label for="lblusuario" style="font-size: 20px;">Asigne un nombre: </label><br/>
-                        <input type="text" name="nombre" /></p>
+                        <input type="text" name="nombremodificar" /></p>
+                                
+                        <p><label for="lblusuario" style="font-size: 20px;">Asigne un apellido: </label><br/>
+                        <input type="text" name="apellidomodificar" /></p>
+                        
+                        <p><label for="lblusuario" style="font-size: 20px;">Asigne una contraseña:  </label><br/>
+                        <input type="password" name="contramodificar" /></p>
+                                
+                        <input type="submit" value="Modificar"/> 
+                            <%-- start web service invocation --%><hr/>
+                            <%
+                                if(request.getParameter("ChoferModificar") != null){
+                                    String seleccionado = request.getParameter("ChoferModificar");
+                                    if(seleccionado.equals("Seleccione")){
+                                        String mensaje="<script language='javascript'>alert('Seleccione un chofer');</script>"; 
+                                        out.println(mensaje);
+                                    }else{
+                                        try {
+                                            webservice.WS_Service service = new webservice.WS_Service();
+                                            webservice.WS port = service.getWSPort();
+                                             // TODO initialize WS operation arguments here
+                                            java.lang.String id = request.getParameter("ChoferModificar");
+                                            java.lang.String idnuevo = request.getParameter("idmodificar");
+                                            java.lang.String nombre = request.getParameter("nombremodificar");
+                                            java.lang.String apellido = request.getParameter("apellidomodificar");
+                                            java.lang.String contrasena = request.getParameter("contramodificar");
+                                            // TODO process result here
+                                            if(id.equals("") || idnuevo.equals("") || nombre.equals("") || contrasena.equals("")||apellido.equals("")||apellido.equals(null) || id.equals(null) ||idnuevo.equals(null)|| nombre.equals(null)|| contrasena.equals(null)){
+                                                String mensaje="<script language='javascript'>alert('Llene los campos');</script>"; 
+                                                out.println(mensaje);
+                                            }else{
+                                                boolean result = port.modificarChofer(id, idnuevo, nombre, apellido, contrasena);
+                                                if(result == true){
+                                                    String mensaje="<script language='javascript'>alert('Modificacion exitosa');</script>"; 
+                                                    out.println(mensaje);
+                                                }
+                                            }
+          
+                                        } catch (Exception ex) {
+                                            // TODO handle custom exceptions here
+                                            String mensaje="<script language='javascript'>alert('Error en la modificacion');</script>"; 
+                                            out.println(mensaje);
+                                        }
+                                    }
+                                }
+                            
+                            %>
+                            <%-- end web service invocation --%><hr/>
+
                     </form>
                 </div>
                 

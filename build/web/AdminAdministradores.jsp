@@ -135,15 +135,76 @@ function mostrar(id) {
                 <!--Formulario para modificar informacion de un administrador-->  
                 <div id="Modificar" style="display: none;">
                     <h2>Modificar Usuario Administrador</h2>
+                    Seleccione el usuario a modificar y llene los campos:
                     <form action="AdminAdministradores.jsp" method="post" >
+                        <select name="correomodificar">    
+                                <option value="Seleccione">Seleccione</option>
+                                    <%-- start web service invocation --%><hr/>
+                                <%
+                                try {
+                                    webservice.WS_Service service = new webservice.WS_Service();
+                                    webservice.WS port = service.getWSPort();
+                                    // TODO process result here
+                                    java.util.List<java.lang.Object> result = port.devolverListaAdmins();
+                                    int tamano = result.size();
+                                    for(int i = tamano - 1;i>=0;i--){
+                                        String correos = result.get(i).toString();
+                                        %>
+                                        <option><%=correos%> </option>
+                                        <%
+                                        }
+                                    }catch (Exception ex) {
+                                    // TODO handle custom exceptions here
+                                }
+                                %>
+                                <%-- end web service invocation --%><hr/>
+                        </select>
+                        
                         <p><label for="lblusuario" style="font-size: 20px;">Asigne un correo: </label><br/>
-                        <input type="text" name="correo" /></p>
+                        <input type="text" name="correoModificartxt" /></p>
                         
                         <p><label for="lblcontra" style="font-size: 20px;">Asigne una Contraseña: </label><br/>
-                        <input type="password" name="contra" /></p>
+                        <input type="password" name="contraModificar" /></p>
                         
-                        <p><label for="lblcontra" style="font-size: 20px;">Confirme la Contraseña: </label><br/>
-                        <input type="password" name="confirma" /></p>
+                            <%-- start web service invocation --%><hr/>
+                            <%
+                                if(request.getParameter("correomodificar") != null){
+                                    if(request.getParameter("correomodificar").equals("Seleccione")){
+                                        String mensaje="<script language='javascript'>alert('Seleccione un administrador');</script>"; 
+                                        out.println(mensaje);
+                                    }else{
+                                        try {
+                                            webservice.WS_Service service = new webservice.WS_Service();
+                                            webservice.WS port = service.getWSPort();
+                                             // TODO initialize WS operation arguments here
+                                            java.lang.String correo = request.getParameter("correomodificar");
+                                            java.lang.String nuevocorreo = request.getParameter("correoModificartxt");
+                                            java.lang.String contrasena = request.getParameter("contraModificar");
+                                            // TODO process result here
+                                            if(nuevocorreo.equals("") || nuevocorreo.equals(null) || contrasena.equals("") || contrasena.equals(null)){
+                                                String mensaje="<script language='javascript'>alert('Llene los campos');</script>"; 
+                                                out.println(mensaje);
+                                            }else{
+                                                boolean result = port.modificarAdministrador(correo, nuevocorreo, contrasena);
+                                                if(result == true){
+                                                    String mensaje="<script language='javascript'>alert('Modificacion exitosa');</script>"; 
+                                                    out.println(mensaje);
+                                                }
+                                            }
+                                            
+                                        } catch (Exception ex) {
+                                            // TODO handle custom exceptions here
+                                            String mensaje="<script language='javascript'>alert('Error en la modificacion');</script>"; 
+                                            out.println(mensaje);
+                                        }
+                                    }
+                                }
+                            
+                            %>
+                            <%-- end web service invocation --%><hr/>
+
+                        
+                        <input type="submit" value="Modificar"/>
                     </form>
                 </div>
                 
@@ -156,7 +217,7 @@ function mostrar(id) {
                             <select name="correoeliminar">    
                                 <option value="Seleccione">Seleccione</option>
                                     <%-- start web service invocation --%><hr/>
-                                <%
+                                <% 
                                 try {
                                     webservice.WS_Service service = new webservice.WS_Service();
                                     webservice.WS port = service.getWSPort();

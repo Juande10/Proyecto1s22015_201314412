@@ -229,7 +229,33 @@ function mostrar(id) {
                 <input type="text" name="idChofer" /></p>
                 <p><label for="lblcontra" style="font-size: 20px;">Contarseña: </label><br/>
                 <input type="password" name="contraChofer" /></p>    
-                <input type="submit" value="Iniciar Sesion General" name="InicioGeneral"/>
+                <input type="submit" value="Iniciar Sesion Chofer" name="InicioChofer"/>
+                    <%-- start web service invocation --%><hr/>
+                    <%
+                    if(request.getParameter("idChofer") != null && request.getParameter("contraChofer")!= null){
+                            try {                        
+                                webservice.WS_Service service = new webservice.WS_Service();
+                                webservice.WS port = service.getWSPort();
+                                 // TODO initialize WS operation arguments here
+                                java.lang.String id = request.getParameter("idChofer");
+                                java.lang.String contrasena = request.getParameter("contraChofer");
+                                // TODO process result here
+                                boolean result = port.loginChofer(id, contrasena);
+                                if(result == true){
+                                    response.sendRedirect("PrincipalChofer.jsp");
+                                }else{
+                                   String mensaje="<script language='javascript'>alert('id o contraseña incorrecta');</script>"; 
+                                   out.println(mensaje); 
+                                }
+                            } catch (Exception ex) {
+                                // TODO handle custom exceptions here
+                                String mensaje="<script language='javascript'>alert('error con el login de chofer');</script>"; 
+                                out.println(mensaje);
+                            }
+                        }
+                    
+                    %>
+                    <%-- end web service invocation --%><hr/>
             </form>
         </div>                
       </div>

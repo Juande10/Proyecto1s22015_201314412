@@ -8,6 +8,10 @@
 
 <xs:element name="CrearAdministradorResponse" type="tns:CrearAdministradorResponse"/>
 
+<xs:element name="CrearBus" type="tns:CrearBus"/>
+
+<xs:element name="CrearBusResponse" type="tns:CrearBusResponse"/>
+
 <xs:element name="CrearChofer" type="tns:CrearChofer"/>
 
 <xs:element name="CrearChoferResponse" type="tns:CrearChoferResponse"/>
@@ -48,9 +52,17 @@
 
 <xs:element name="DevolverNombresGeneralResponse" type="tns:DevolverNombresGeneralResponse"/>
 
+<xs:element name="DevolverNumeroBuses" type="tns:DevolverNumeroBuses"/>
+
+<xs:element name="DevolverNumeroBusesResponse" type="tns:DevolverNumeroBusesResponse"/>
+
 <xs:element name="EliminarAdministrador" type="tns:EliminarAdministrador"/>
 
 <xs:element name="EliminarAdministradorResponse" type="tns:EliminarAdministradorResponse"/>
+
+<xs:element name="EliminarBus" type="tns:EliminarBus"/>
+
+<xs:element name="EliminarBusResponse" type="tns:EliminarBusResponse"/>
 
 <xs:element name="EliminarEstacionClave" type="tns:EliminarEstacionClave"/>
 
@@ -60,6 +72,8 @@
 
 <xs:element name="EliminarEstacionGeneralResponse" type="tns:EliminarEstacionGeneralResponse"/>
 
+<xs:element name="FileNotFoundException" type="tns:FileNotFoundException"/>
+
 <xs:element name="GraficarAdministradores" type="tns:GraficarAdministradores"/>
 
 <xs:element name="GraficarAdministradoresResponse" type="tns:GraficarAdministradoresResponse"/>
@@ -67,6 +81,20 @@
 <xs:element name="GraficarChoferes" type="tns:GraficarChoferes"/>
 
 <xs:element name="GraficarChoferesResponse" type="tns:GraficarChoferesResponse"/>
+
+<xs:element name="GraficarEstacionesClave" type="tns:GraficarEstacionesClave"/>
+
+<xs:element name="GraficarEstacionesClaveResponse" type="tns:GraficarEstacionesClaveResponse"/>
+
+<xs:element name="GraficarEstacionesGenerales" type="tns:GraficarEstacionesGenerales"/>
+
+<xs:element name="GraficarEstacionesGeneralesResponse" type="tns:GraficarEstacionesGeneralesResponse"/>
+
+<xs:element name="IOException" type="tns:IOException"/>
+
+<xs:element name="LeerArchivo" type="tns:LeerArchivo"/>
+
+<xs:element name="LeerArchivoResponse" type="tns:LeerArchivoResponse"/>
 
 <xs:element name="LlenarListaAdministradores" type="tns:LlenarListaAdministradores"/>
 
@@ -96,6 +124,10 @@
 
 <xs:element name="LlenarListaNombresEstacionesGeneralesResponse" type="tns:LlenarListaNombresEstacionesGeneralesResponse"/>
 
+<xs:element name="LlenarListaNumeroBuses" type="tns:LlenarListaNumeroBuses"/>
+
+<xs:element name="LlenarListaNumeroBusesResponse" type="tns:LlenarListaNumeroBusesResponse"/>
+
 <xs:element name="LoginAdministrador" type="tns:LoginAdministrador"/>
 
 <xs:element name="LoginAdministradorResponse" type="tns:LoginAdministradorResponse"/>
@@ -111,6 +143,22 @@
 <xs:element name="LoginEstacionGeneral" type="tns:LoginEstacionGeneral"/>
 
 <xs:element name="LoginEstacionGeneralResponse" type="tns:LoginEstacionGeneralResponse"/>
+
+<xs:element name="ModificarAdministrador" type="tns:ModificarAdministrador"/>
+
+<xs:element name="ModificarAdministradorResponse" type="tns:ModificarAdministradorResponse"/>
+
+<xs:element name="ModificarChofer" type="tns:ModificarChofer"/>
+
+<xs:element name="ModificarChoferResponse" type="tns:ModificarChoferResponse"/>
+
+<xs:element name="ModificarEsClave" type="tns:ModificarEsClave"/>
+
+<xs:element name="ModificarEsClaveResponse" type="tns:ModificarEsClaveResponse"/>
+
+<xs:element name="ModificarEsGeneral" type="tns:ModificarEsGeneral"/>
+
+<xs:element name="ModificarEsGeneralResponse" type="tns:ModificarEsGeneralResponse"/>
 
 <xs:element name="hello" type="tns:hello"/>
 
@@ -190,6 +238,18 @@
 </xs:complexType>
 
 <xs:complexType name="LoginEstacionClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarBus">
+<xs:sequence>
+<xs:element name="numero" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarBusResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
@@ -283,6 +343,30 @@
 <xs:sequence/>
 </xs:complexType>
 
+<xs:complexType name="LeerArchivo">
+<xs:sequence>
+<xs:element name="ruta" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LeerArchivoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="FileNotFoundException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="IOException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="LlenarListaEstacionesGenerales">
 <xs:sequence>
 <xs:element name="arg0" type="tns:nodoEstacionGeneral" minOccurs="0"/>
@@ -293,6 +377,22 @@
 <xs:sequence/>
 </xs:complexType>
 
+<xs:complexType name="ModificarChofer">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="idnuevo" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="apellido" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarChoferResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="EliminarEstacionClave">
 <xs:sequence>
 <xs:element name="id" type="xs:int"/>
@@ -300,6 +400,29 @@
 </xs:complexType>
 
 <xs:complexType name="EliminarEstacionClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DevolverNumeroBuses">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DevolverNumeroBusesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearAdministrador">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearAdministradorResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
@@ -327,26 +450,45 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="CrearAdministrador">
+<xs:complexType name="ModificarAdministrador">
 <xs:sequence>
 <xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="nuevocorreo" type="xs:string" minOccurs="0"/>
 <xs:element name="contrasena" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="CrearAdministradorResponse">
+<xs:complexType name="ModificarAdministradorResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="DevolverIdsChoferes">
+<xs:complexType name="LlenarListaNumeroBuses">
+<xs:sequence>
+<xs:element name="arg0" type="tns:nodoBus" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nodoBus">
+<xs:sequence>
+<xs:element name="anterior" type="tns:nodoBus" minOccurs="0"/>
+<xs:element name="numero" type="xs:int"/>
+<xs:element name="siguiente" type="tns:nodoBus" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LlenarListaNumeroBusesResponse">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="DevolverIdsChoferesResponse">
+<xs:complexType name="GraficarEstacionesGenerales">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GraficarEstacionesGeneralesResponse">
 <xs:sequence>
-<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -372,6 +514,26 @@
 </xs:complexType>
 
 <xs:complexType name="BorrarChoferResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DevolverIdsChoferes">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DevolverIdsChoferesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GraficarEstacionesClave">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GraficarEstacionesClaveResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
@@ -403,6 +565,21 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="ModificarEsGeneral">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="idnuevo" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarEsGeneralResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="LlenarListaEstacionesClave">
 <xs:sequence>
 <xs:element name="arg0" type="tns:nodoEstacionClave" minOccurs="0"/>
@@ -411,6 +588,18 @@
 
 <xs:complexType name="LlenarListaEstacionesClaveResponse">
 <xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="CrearBus">
+<xs:sequence>
+<xs:element name="numero" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CrearBusResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="EliminarAdministrador">
@@ -425,16 +614,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="GraficarChoferes">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="GraficarChoferesResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="LoginChofer">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -443,6 +622,16 @@
 </xs:complexType>
 
 <xs:complexType name="LoginChoferResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GraficarChoferes">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GraficarChoferesResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
@@ -485,6 +674,21 @@
 <xs:complexType name="DevolverIdsClaveResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarEsClave">
+<xs:sequence>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
+<xs:element name="idnuevo" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="contrasena" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarEsClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>
