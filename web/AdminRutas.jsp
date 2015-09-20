@@ -19,31 +19,38 @@
 function mostrar(id) {
     if (id === "Crear") {
         $("#Crear").show();
-        $("#Modificar").hide();
+        $("#Asignar").hide();
         $("#Eliminar").hide();
     }
 
-    if (id === "Modificar") {
+    if (id === "Asignar") {
         $("#Crear").hide();
-        $("#Modificar").show();
+        $("#Asignar").show();
         $("#Eliminar").hide();
     }
 
     if (id === "Eliminar") {
         $("#Crear").hide();
-        $("#Modificar").hide();
+        $("#Asignar").hide();
         $("#Eliminar").show();
+    }
+}
+
+</script>
+<script type="text/javascript">
+function tipoestacion(id){
+    if (id === "Clave") {
+        $("#Clave").show();
+        $("#General").hide();
+    }
+    if (id === "General"){
+        $("#Clave").hide();
+        $("#General").show();
     }
 }
 </script>
 </head>
 <body>  
-    <%!
-    public void Prueba(){
-        System.out.println("Hola mundo");
-    }
-    %>    
-
 <div class="main">
   <div class="header">
     <div class="header_resize">
@@ -61,6 +68,7 @@ function mostrar(id) {
           <li><a href="AdminBuses.jsp">Buses</a></li>
           <li class="active"><a href="AdminRutas.jsp">Rutas</a></li>
           <li><a href="Reportes.jsp">Reportes</a></li>
+          <li><a href="Asignaciones.jsp">Asignaciones</a></li>
         </ul>
       </div>
       <div class="clr"></div>
@@ -75,39 +83,237 @@ function mostrar(id) {
       
           <div class="clr"></div>
           <img src="images/img1.jpg" width="201" height="135" alt="" class="fl" />
-          <p> En esta pagina se puede administrar la informacion de las rutas:           
+          <p> En esta pagina se puede administrar la informacion de las rutas para crear una ruta debe primero crearla por su nombre seguido de eso debe asignar las estaciones deseadas:           
                <p> - Agregar</p>
                <p> - Modificar</p>
                <p> - Eliminar</p>
-                <form action="index.php" method="post">
+                <form action="AdminRutas.jsp" method="post">
                 Seleccione la accion que desea realizar: 
                 <select id="tipo" name="tipo" onChange="mostrar(this.value);">
                     <option value="Crear">Crear Ruta</option>
-                    <option value="Modificar">Modificar Ruta</option>
+                    <option value="Asignar">Asignar Estaciones</option>
                     <option value="Eliminar">Eliminar Ruta</option>
                  </select>
                 </form>
                 <!--Formulario para crear un usuario administrador esta si se muestra por default al iniciar por eso no lleva el style="display: none;"-->  
                 <div id="Crear">
                     <h2>Crear Ruta</h2>
-                    <form action="index.php" method="post">
+                    <form action="AdminRutas.jsp" method="post">
                         <p><label for="lblusuario" style="font-size: 20px;">Ingrese el nombre de la ruta: </label><br/>
-                        <input type="text" name="nombre" /></p>
+                        <input type="text" name="nombreCrearRuta" /></p>
+                        <input type="submit" value="Crear Ruta" name="CrearRuta"/>
+                            <%-- start web service invocation --%><hr/>
+                            <%
+                                if(request.getParameter("nombreCrearRuta") != null ){
+                                    if(!request.getParameter("nombreCrearRuta").equals("")){
+                                        try {
+                                            webservice.WS_Service service = new webservice.WS_Service();
+                                            webservice.WS port = service.getWSPort();
+                                             // TODO initialize WS operation arguments here
+                                            java.lang.String nombre = request.getParameter("nombreCrearRuta");
+                                            // TODO process result here
+                                            boolean result = port.crearRuta(nombre);
+                                            if(result == true){
+                                                String mensaje="<script language='javascript'>alert('Ruta creada'" +");</script>"; 
+                                                out.println(mensaje);
+                                            }else{
+                                                String mensaje="<script language='javascript'>alert('Ruta existente o incorrecta'" +");</script>"; 
+                                                out.println(mensaje);
+                                            }
+                                        } catch (Exception ex) {
+                                            // TODO handle custom exceptions here
+                                            String mensaje="<script language='javascript'>alert('Error en el metodo de crear ruta'" +");</script>"; 
+                                            out.println(mensaje);
+                                        }
+                                    }else{
+                                        String mensaje="<script language='javascript'>alert('Llene los campos'" +");</script>"; 
+                                        out.println(mensaje);
+                                    }
+                                    
+                                }
+                  
+                            %>
+                            <%-- end web service invocation --%><hr/>
+
                     </form>
                 </div>
                 
                 <!--Formulario para modificar informacion de un administrador-->  
-                <div id="Modificar" style="display: none;">
-                    <h2>Modificar Ruta</h2>
-                    <form action="index.php" method="post" >
+                <div id="Asignar" style="display: none;">
+                    <h2>Asignar Estaciones</h2>
+                    <form action="AdminRutas.jsp" method="post" >
+                        <h3>Seleccione la ruta a la que desea asignarle estaciones:</h3>
+                        <select name="RutaAsignar">  
+                            <option value="Seleccione" selected="selected">Seleccione</option>
+                                    <%-- start web service invocation --%><hr/>
+                                <%
+                                try {
+                                    webservice.WS_Service service = new webservice.WS_Service();
+                                    webservice.WS port = service.getWSPort();
+                                    // TODO process result here
+                                    java.util.List<java.lang.Object> result = port.devolverListaRutas();
+                                    int tamano = result.size();
+                                    for(int i = tamano - 1;i>=0;i--){
+                                        String nombre = result.get(i).toString();
+                                        %>
+                                        <option value = "<%=nombre%>"><%=nombre%></option>
+                                        <%
+                                        }
+                                    
+                                } catch (Exception ex) {
+                                    // TODO handle custom exceptions here
+                                }
+                                %>
+                                <%-- end web service invocation --%><hr/>
+                        </select>
                         
+                        <form action="AdminRutas.jsp" method="post">
+                            Seleccione el tipo de estacion a asignar:
+                            <select id="tipoEstacion" name="tipoEstacion" onChange="tipoestacion(this.value)">
+                                <option value="Clave">Estacion Clave</option>
+                                <option value="General">Estacion General</option>
+                            </select>
+                        </form>                       
+                        <!--Formulario para mostrar estaciones clave-->  
+                        <div id="Clave">
+                            <h2>Estaciones Clave</h2>
+                            <form action="AdminRutas.jsp" method="post" >
+                                <p><label for="lblusuario" style="font-size: 20px;">Seleccione la estacion clave que desea agregar a la ruta: </label><br/>
+                                    <select name="EstaClave">
+                                        <option value="Seleccione" selected="selected">Seleccione</option>
+                                        <%-- start web service invocation --%><hr/>
+                                        <%
+                                        try {
+                                            webservice.WS_Service service = new webservice.WS_Service();
+                                            webservice.WS port = service.getWSPort();
+                                            // TODO process result here
+                                            java.util.List<java.lang.Object> result = port.devolverIdsClave();
+                                            java.util.List<java.lang.Object> result2 = port.devolverNombresClave();
+                                            int tamano = result.size();
+                                            for(int i = tamano - 1;i>=0;i--){
+                                                String id = result.get(i).toString();
+                                                String nombre = result2.get(i).toString();
+                                                %>
+                                                <option value = "<%=id%>"><%=nombre%></option>
+                                                <%
+                                                }
+                                        } catch (Exception ex) {
+                                            // TODO handle custom exceptions here
+                                        }
+                                        %>
+                                        <%-- end web service invocation --%><hr/>
+                                    </select>
+                                    <input type="submit" value="Asignar Estacion Clave" name="AsignaClave"/>
+                                        <%-- start web service invocation --%><hr/>
+                                        <%
+                                        if(request.getParameter("EstaClave") != null && request.getParameter("RutaAsignar") != null){
+                                            if(request.getParameter("EstaClave").equals("Seleccione") || request.getParameter("RutaAsignar").equals("Seleccione")){
+                                                
+                                            }else{
+                                                try {
+                                                    webservice.WS_Service service = new webservice.WS_Service();
+                                                    webservice.WS port = service.getWSPort();
+                                                     // TODO initialize WS operation arguments here
+                                                    java.lang.String nombreruta = request.getParameter("RutaAsignar");
+                                                    java.lang.String idestacion = request.getParameter("EstaClave");
+                                                    java.lang.String tipoestacion = "Clave";
+                                                    // TODO process result here
+                                                    boolean result = port.asignarEstacion(nombreruta, idestacion, tipoestacion);
+                                                    if(result == true){
+                                                        String mensaje="<script language='javascript'>alert('Se asigno una estacion clave a esta ruta');</script>"; 
+                                                        out.println(mensaje);
+                                                    }else{
+                                                        String mensaje="<script language='javascript'>alert('No se pudo asignar');</script>"; 
+                                                        out.println(mensaje);
+                                                    }
+                                                } catch (Exception ex) {
+                                                    // TODO handle custom exceptions here
+                                                    String mensaje="<script language='javascript'>alert('Error al tratar de asignar general');</script>"; 
+                                                    out.println(mensaje);
+                                                }
+                                            }
+                                        }
+                                        
+                                        %>
+                                        <%-- end web service invocation --%><hr/>
+
+                            </form>
+                        </div>
+                                    
+                                    
+                                    
+                        <!--Formulario para mostrar estaciones generales-->  
+                        <div id="General" style="display: none;">
+                            <h2>Estaciones Generales</h2>
+                            <form action="AdminRutas.jsp" method="post" >
+                                <p><label for="lblusuario" style="font-size: 20px;">Seleccione la estacion general que desea agregar a la ruta: </label><br/>
+                                <select name="EstaGeneral">
+                                        <option value="Seleccione" selected="selected">Seleccione</option>
+                                        <%-- start web service invocation --%><hr/>
+                                        <%
+                                        try {
+                                            webservice.WS_Service service = new webservice.WS_Service();
+                                            webservice.WS port = service.getWSPort();
+                                            // TODO process result here
+                                            java.util.List<java.lang.Object> result = port.devolverIdsGeneral();
+                                            java.util.List<java.lang.Object> result2 = port.devolverNombresGeneral();
+                                            int tamano = result.size();
+                                            for(int i = tamano - 1;i>=0;i--){
+                                                String id = result.get(i).toString();
+                                                String nombre = result2.get(i).toString();
+                                                %>
+                                                <option value = "<%=id%>"><%=nombre%></option>
+                                                <%
+                                                }
+                                        } catch (Exception ex) {
+                                            // TODO handle custom exceptions here
+                                        }
+                                        %>
+                                        <%-- end web service invocation --%><hr/>
+                                </select>
+                                <input type="submit" value="Asignar Estacion General" name="AsignaGeneral"/>
+                                    <%-- start web service invocation --%><hr/>
+                                    <%
+                                        if(request.getParameter("EstaGeneral") != null && request.getParameter("RutaAsignar") != null){
+                                            if(request.getParameter("EstaGeneral").equals("Seleccione") || request.getParameter("RutaAsignar").equals("Seleccione")){
+                                                
+                                            }else{
+                                                try {
+                                                    webservice.WS_Service service = new webservice.WS_Service();
+                                                    webservice.WS port = service.getWSPort();
+                                                     // TODO initialize WS operation arguments here
+                                                    java.lang.String nombreruta = request.getParameter("RutaAsignar");
+                                                    java.lang.String idestacion = request.getParameter("EstaGeneral");
+                                                    java.lang.String tipoestacion = "General";
+                                                    // TODO process result here
+                                                    boolean result = port.asignarEstacion(nombreruta, idestacion,tipoestacion);
+                                                    if(result == true){
+                                                        String mensaje="<script language='javascript'>alert('Se asigno una estacion general a esta ruta');</script>"; 
+                                                        out.println(mensaje);
+                                                    }else{
+                                                        String mensaje="<script language='javascript'>alert('No se pudo asignar');</script>"; 
+                                                        out.println(mensaje);
+                                                    }
+                                                } catch (Exception ex) {
+                                                    // TODO handle custom exceptions here
+                                                    String mensaje="<script language='javascript'>alert('Error al tratar de asignar general');</script>"; 
+                                                    out.println(mensaje);
+                                                }
+                                            }
+                                        }
+                                    
+                                    %>
+                                    <%-- end web service invocation --%><hr/>
+
+                            </form>
+                        </div>
                     </form>
                 </div>
                 
                 <!--Formulario para eliminar informacion de un administrador-->  
                 <div id="Eliminar" style="display: none;">
                     <h2>Eliminar Ruta</h2>
-                    <form action="index.php" method="post" >
+                    <form action="AdminRutas.jsp" method="post" >
                         <p><label for="lblusuario" style="font-size: 20px;">Escriba el nombre de la ruta a eliminar: </label><br/>
                         <input type="text" name="ideliminar" /></p>
                     </form>

@@ -61,6 +61,7 @@ function mostrar(id) {
           <li><a href="AdminBuses.jsp">Buses</a></li>
           <li><a href="AdminRutas.jsp">Rutas</a></li>
           <li><a href="Reportes.jsp">Reportes</a></li>
+          <li><a href="Asignaciones.jsp">Asignaciones</a></li>
         </ul>
       </div>
       <div class="clr"></div>

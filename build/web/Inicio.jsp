@@ -49,9 +49,7 @@ function mostrar(id) {
 </head>
 <body>     
     <%!
-    public void Prueba(){
-        System.out.println("Hola mundo");
-    }
+    
     %>  
 
 <div class="main">
@@ -131,6 +129,7 @@ function mostrar(id) {
                         boolean result = port.loginAdministrador(correo, contrasena);               
                         if(result == true){
                             response.sendRedirect("PrincipalAdministrador.jsp");
+                            
                         }else{
                             String mensaje="<script language='javascript'>alert('Usuario Administrador o contraseña incorrecta');</script>"; 
                             out.println(mensaje);
@@ -158,6 +157,7 @@ function mostrar(id) {
                 <input type="password" name="passClave" /></p>
                 <input type="submit" value="Iniciar Sesion Clave" name="InicioClave" />
                 <%
+                
                     if(request.getParameter("usuarioClave") != null && request.getParameter("passClave") != null){                                               
                         try {
                             webservice.WS_Service service = new webservice.WS_Service();
@@ -170,6 +170,7 @@ function mostrar(id) {
                             boolean result = port.loginEstacionClave(id, contrasena);
                             if(result == true){
                                 response.sendRedirect("PrincipalEstacionClave.jsp");
+                                
                             }else{
                                 String mensaje="<script language='javascript'>alert('Usuario Clave o contraseña incorrecta');</script>"; 
                                 out.println(mensaje);   

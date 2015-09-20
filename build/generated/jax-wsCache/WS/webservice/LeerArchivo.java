@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="ruta" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="contenido" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,34 +27,34 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "LeerArchivo", propOrder = {
-    "ruta"
+    "contenido"
 })
 public class LeerArchivo {
 
-    protected String ruta;
+    protected String contenido;
 
     /**
-     * Obtiene el valor de la propiedad ruta.
+     * Obtiene el valor de la propiedad contenido.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getRuta() {
-        return ruta;
+    public String getContenido() {
+        return contenido;
     }
 
     /**
-     * Define el valor de la propiedad ruta.
+     * Define el valor de la propiedad contenido.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setRuta(String value) {
-        this.ruta = value;
+    public void setContenido(String value) {
+        this.contenido = value;
     }
 
 }

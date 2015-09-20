@@ -23,6 +23,8 @@ function mostrar(id) {
         $("#Choferes").hide();
         $("#EsClave").hide();
         $("#EsGeneral").hide();
+        $("#BusesAsign").hide();
+        
     }
 
     if (id === "Choferes") {
@@ -30,6 +32,7 @@ function mostrar(id) {
         $("#Choferes").show();
         $("#EsClave").hide();
         $("#EsGeneral").hide();
+        $("#BusesAsign").hide();
     }
 
     if (id === "EsClave") {
@@ -37,6 +40,7 @@ function mostrar(id) {
         $("#Choferes").hide();
         $("#EsClave").show();
         $("#EsGeneral").hide();
+        $("#BusesAsign").hide();
     }
     
     if (id === "EsGeneral") {
@@ -44,6 +48,14 @@ function mostrar(id) {
         $("#Choferes").hide();
         $("#EsClave").hide();
         $("#EsGeneral").show();
+        $("#BusesAsign").hide();
+    }
+    if (id === "BusesAsign"){
+        $("#Administradores").hide();
+        $("#Choferes").hide();
+        $("#EsClave").hide();
+        $("#EsGeneral").hide();
+        $("#BusesAsign").show();
     }
 }
 
@@ -79,6 +91,7 @@ window.location='Reportes.jsp';
           <li><a href="AdminBuses.jsp">Buses</a></li>
           <li><a href="AdminRutas.jsp">Rutas</a></li>
           <li class="active"><a href="Reportes.jsp">Reportes</a></li>
+          <li><a href="Asignaciones.jsp">Asignaciones</a></li>
         </ul>
       </div>
       <div class="clr"></div>
@@ -99,6 +112,8 @@ window.location='Reportes.jsp';
                     <option value="Choferes">Choferes</option>
                     <option value="EsClave">Estaciones Clave</option>
                     <option value="EsGeneral">Estaciones Generales</option>
+                    <option value="BusesAsign">Buses Asignados a un chofer</option>
+                    
                  </select>
                 </form>
                 <!--Form para ver grafica de administradores esta si se muestra por default al iniciar por eso no lleva el style="display: none;"-->  
@@ -219,6 +234,72 @@ window.location='Reportes.jsp';
                             %>
                             <%-- end web service invocation --%><hr/>
 
+                    </form>
+                </div>
+                <!--Formulario para mostrar grafica Lista de buses asignados a un chofer-->  
+                <div id="BusesAsign" style="display: none;">
+                    <h2>Grafica de Estaciones Generales</h2>
+                    <form action="Reportes.jsp" method="post" >
+                        <p><label for="lblusuario" style="font-size: 20px;">Seleccione el chofer que desea ver: </label><br/>
+                        <select name="ChoferGrafica">
+                            <option value="Seleccione" selected="selected">Seleccione</option>
+                                <%-- start web service invocation --%><hr/>
+                                <%
+                                try {
+                                    webservice.WS_Service service = new webservice.WS_Service();
+                                    webservice.WS port = service.getWSPort();
+                                    // TODO process result here
+                                    java.util.List<java.lang.Object> result = port.devolverIdsChoferes();
+                                    java.util.List<java.lang.Object> result2 = port.devolverNombresChoferes();
+                                    int tamano = result.size();
+                                    for(int i = tamano - 1;i>=0;i--){
+                                        String id = result.get(i).toString();
+                                        String nombre = result2.get(i).toString();
+                                        %>
+                                        <option value = "<%=id%>"><%=nombre%></option>
+                                        <%
+                                        }
+                                } catch (Exception ex) {
+                                    // TODO handle custom exceptions here
+                                }
+                                %>
+                                
+                                <%-- end web service invocation --%><hr/>
+                                </select>
+                                <input type="submit" value="Graficar Buses"/>
+                                    <%-- start web service invocation --%><hr/>
+                                    <%
+                                if(request.getParameter("ChoferGrafica") != null){
+                                    if(request.getParameter("ChoferGrafica").equals("Seleccione")){
+                                        String mensaje="<script language='javascript'>alert('Seleccione un chofer para generar esa grafica);</script>"; 
+                                        out.println(mensaje);
+                                    }else{
+                                        try {
+                                            webservice.WS_Service service = new webservice.WS_Service();
+                                            webservice.WS port = service.getWSPort();
+                                             // TODO initialize WS operation arguments here
+                                            java.lang.String idchofer = request.getParameter("ChoferGrafica");
+                                            // TODO process result here
+                                            boolean result = port.graficarBusesChofer(idchofer);
+                                            if(result == true){
+                                                String mensaje="<script language='javascript'>alert('Grafica para ese chofer generada exitosamente);</script>"; 
+                                                out.println(mensaje);
+                                                %>
+                                                <img src=GraficaBusesChofer.jpg>                              
+                                                <%
+                                            }else{
+                                                String mensaje="<script language='javascript'>alert('No se pudo generar la grafica para ese chofer);</script>"; 
+                                                out.println(mensaje);
+                                            }
+                                        } catch (Exception ex) {
+                                            // TODO handle custom exceptions here
+                                            String mensaje="<script language='javascript'>alert(Error al intengar graficar para ese chofer);</script>"; 
+                                            out.println(mensaje);
+                                        }
+                                    }
+                                }         
+                                    %>
+                                    <%-- end web service invocation --%><hr/>
                     </form>
                 </div>
         </div>

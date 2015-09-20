@@ -20,7 +20,9 @@
     public void Prueba(){
         System.out.println("Hola mundo");
     }
-    %>    
+    %> 
+
+
 
 <div class="main">
   <div class="header">

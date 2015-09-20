@@ -1,8 +1,11 @@
 
 package webservice;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -18,9 +21,12 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="izq" type="{http://webservice/}nodoChofer" minOccurs="0"/>
  *         &lt;element name="der" type="{http://webservice/}nodoChofer" minOccurs="0"/>
+ *         &lt;element name="ListaBuses" type="{http://www.w3.org/2001/XMLSchema}int" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="cadena" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="apellido" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="contrasena" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="fe" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="fechas" type="{http://webservice/}listaFechas" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="nombre" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
@@ -35,9 +41,12 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "nodoChofer", propOrder = {
     "izq",
     "der",
+    "listaBuses",
+    "cadena",
     "apellido",
     "contrasena",
     "fe",
+    "fechas",
     "id",
     "nombre"
 })
@@ -45,9 +54,13 @@ public class NodoChofer {
 
     protected NodoChofer izq;
     protected NodoChofer der;
+    @XmlElement(name = "ListaBuses", nillable = true)
+    protected List<Integer> listaBuses;
+    protected String cadena;
     protected String apellido;
     protected String contrasena;
     protected int fe;
+    protected ListaFechas fechas;
     protected int id;
     protected String nombre;
 
@@ -97,6 +110,59 @@ public class NodoChofer {
      */
     public void setDer(NodoChofer value) {
         this.der = value;
+    }
+
+    /**
+     * Gets the value of the listaBuses property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the listaBuses property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getListaBuses().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Integer }
+     * 
+     * 
+     */
+    public List<Integer> getListaBuses() {
+        if (listaBuses == null) {
+            listaBuses = new ArrayList<Integer>();
+        }
+        return this.listaBuses;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad cadena.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCadena() {
+        return cadena;
+    }
+
+    /**
+     * Define el valor de la propiedad cadena.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCadena(String value) {
+        this.cadena = value;
     }
 
     /**
@@ -161,6 +227,30 @@ public class NodoChofer {
      */
     public void setFe(int value) {
         this.fe = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad fechas.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ListaFechas }
+     *     
+     */
+    public ListaFechas getFechas() {
+        return fechas;
+    }
+
+    /**
+     * Define el valor de la propiedad fechas.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ListaFechas }
+     *     
+     */
+    public void setFechas(ListaFechas value) {
+        this.fechas = value;
     }
 
     /**

@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="izq" type="{http://webservice/}nodoEstacionClave" minOccurs="0"/>
  *         &lt;element name="der" type="{http://webservice/}nodoEstacionClave" minOccurs="0"/>
+ *         &lt;element name="cantpersonas" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="contrasena" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="fe" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
@@ -34,6 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "nodoEstacionClave", propOrder = {
     "izq",
     "der",
+    "cantpersonas",
     "contrasena",
     "fe",
     "id",
@@ -43,6 +45,7 @@ public class NodoEstacionClave {
 
     protected NodoEstacionClave izq;
     protected NodoEstacionClave der;
+    protected int cantpersonas;
     protected String contrasena;
     protected int fe;
     protected int id;
@@ -94,6 +97,22 @@ public class NodoEstacionClave {
      */
     public void setDer(NodoEstacionClave value) {
         this.der = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad cantpersonas.
+     * 
+     */
+    public int getCantpersonas() {
+        return cantpersonas;
+    }
+
+    /**
+     * Define el valor de la propiedad cantpersonas.
+     * 
+     */
+    public void setCantpersonas(int value) {
+        this.cantpersonas = value;
     }
 
     /**
